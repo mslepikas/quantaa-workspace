@@ -1,0 +1,106 @@
+=== APPLE HEALTH API CONNECTION SETUP ===
+========================================
+
+STEP 1: INSTALL OLLAMA HEALTH TOOL
+===================================
+1. On your OpenClaw server (GB10 or Mac Mini)
+2. Install health-monitoring package
+3. Configure Apple Health API access
+4. Set up OAuth authentication
+
+STEP 2: AUTHENTICATION FLOW
+===========================
+1. Go to: https://developer.apple.com/healthkit
+2. Create Apple Developer account (if needed)
+3. Register your app (OpenClaw)
+4. Get API Key and Secret
+5. Set up OAuth 2.0 flow
+
+STEP 3: CONFIGURE OPENCLAW
+===========================
+Edit: ~/.openclaw/openclaw.json
+Add:
+- "apple_health": {
+    "enabled": true,
+    "api_key": "YOUR_KEY",
+    "secret": "YOUR_SECRET",
+    "health_read": true,
+    "health_write": false
+  }
+}
+
+STEP 4: PERMISSIONS
+===============
+Grant OpenClaw access to:
+- Health read permissions
+- Step count
+- Heart rate
+- Sleep data
+- Workout data
+- Blood pressure (if applicable)
+- Weight data
+
+STEP 5: OLLAMA PROMPT UPDATE
+===============
+Add system prompt:
+"Access Apple Health API to read fitness data. 
+Monitor health metrics but never write data."
+
+STEP 6: TEST CONNECTION
+===============
+Command: "Q, connect to Apple Health"
+Expected: "Connected to Apple Health API"
+
+STEP 7: SECURITY
+===============
+- Store credentials securely
+- Use environment variables
+- Never hardcode keys
+- Rotate keys quarterly
+- Enable 2FA on Apple Developer
+
+STEP 8: MONITORING
+===============
+Set up alerts for:
+- Connection failures
+- API rate limits
+- Data sync issues
+- Permission denials
+
+=== COMMANDS FOR Q ===
+
+"Q, setup Apple Health connection"
+"Q, check API status"
+"Q, sync Apple Health data"
+"Q, debug connection"
+
+=== BENEFITS ===
+
+✅ Automatic data tracking
+✅ No app installation needed
+✅ Secure OAuth authentication
+✅ Real-time sync
+✅ Privacy controlled
+✅ Works with Telegram interface
+
+=== ALTERNATIVE ===
+
+If Apple Health API is too complex:
+- Use voice messages (current setup)
+- Q reads from Apple Health
+- Atlas monitors data
+- Manual entry via Telegram
+- Simple and effective!
+
+=== READY TO GO ===
+
+Current status:
+- Q is ready to help
+- OpenClaw configured
+- Atlas monitoring data
+- Telegram interface active
+- No app needed!
+
+Simply say:
+"Q, connect to Apple Health"
+And Q will guide you through!

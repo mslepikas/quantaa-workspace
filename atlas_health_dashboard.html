@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlas Health Dashboard - Mark Slepikas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', monospace;
+        }
+        
+        body {
+            background: #000;
+            color: #0ff;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .dashboard {
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+        
+        .card {
+            background: #111;
+            border: 2px solid #0ff;
+            border-radius: 10px;
+            padding: 20px;
+            min-height: 200px;
+        }
+        
+        h1 {
+            color: #0ff;
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px #0ff;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .stat-box {
+            background: #0a0;
+            border: 1px solid #0f0;
+            padding: 15px;
+            text-align: center;
+            border-radius: 8px;
+        }
+        
+        .stat-value {
+            font-size: 2em;
+            color: #0f0;
+            font-weight: bold;
+        }
+        
+        .stat-label {
+            color: #0a0;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+        
+        .today {
+            border-color: #0a0;
+        }
+        
+        .yesterday {
+            border-color: #ff0;
+        }
+        
+        .weight {
+            border-color: #f0f;
+        }
+        
+        .workout-log {
+            background: #0a0;
+            border-color: #0ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+        
+        .workout-item {
+            color: #0ff;
+            margin: 8px 0;
+            padding: 8px;
+            background: #000;
+            border-left: 3px solid #0ff;
+        }
+        
+        .progress-bar {
+            background: #333;
+            height: 30px;
+            border-radius: 5px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        
+        .progress-fill {
+            background: linear-gradient(90deg, #00ff00, #00ff00);
+            height: 100%;
+            width: 75%;
+            transition: width 0.5s;
+        }
+        
+        .goal-text {
+            text-align: center;
+            color: #0f0;
+            font-size: 0.8em;
+            margin-top: 5px;
+        }
+        
+        .alerts {
+            background: #ff0;
+            border: 2px solid #ff0;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+        
+        .alert-title {
+            color: #f00;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .recommendations {
+            color: #0ff;
+            font-size: 0.8em;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+    <h1>🏃 Atlas Health Dashboard</h1>
+    
+    <div class="stats-grid">
+        <div class="stat-box today">
+            <div class="stat-value">8,500</div>
+            <div class="stat-label">Steps Today</div>
+            <div class="goal-text">Goal: 10,000</div>
+        </div>
+        
+        <div class="stat-box yesterday">
+            <div class="stat-value">7,500</div>
+            <div class="stat-label">Steps Yesterday</div>
+            <div class="goal-text">Goal: 10,000</div>
+        </div>
+        
+        <div class="stat-box weight">
+            <div class="stat-value">163.3</div>
+            <div class="stat-label">Weight (lbs)</div>
+            <div class="goal-text">Stable</div>
+        </div>
+    </div>
+    
+    <div class="card">
+        <h2>🏋️ Today's Workouts</h2>
+        <div class="workout-log">
+            <div class="workout-item">
+                <strong>☀️ Morning:</strong> ~3,000 steps walked<br>
+                <small>Duration: 30 min | Calories: ~120</small>
+            </div>
+            
+            <div class="workout-item">
+                <strong>🏋️ Gym Session:</strong> 20 min<br>
+                <small>Rowing: 1 km | Barbells | Ab crunches</small>
+            </div>
+            
+            <div class="workout-item">
+                <strong>🌙 Evening:</strong> Pending<br>
+                <small>Goal: 10,000 steps total</small>
+            </div>
+        </div>
+        
+        <div class="progress-bar">
+            <div class="progress-fill" style="width: 85%"></div>
+        </div>
+        <div class="goal-text">Step Progress: 85% to goal</div>
+    </div>
+    
+    <div class="card">
+        <h2>💧 Hydration Alert</h2>
+        <div class="alerts">
+            <div class="alert-title">⚠️ Water Intake: Below Goal</div>
+            <div class="recommendations">
+                <strong>Recommended: 2.5-3 liters daily</strong><br>
+                <small>Drink water every 30 minutes<br>
+                Before workout<br>
+                After meals</small>
+            </div>
+        </div>
+    </div>
+    
+    <div class="card">
+        <h2>📊 Health Metrics</h2>
+        <div class="stats-grid">
+            <div class="stat-box">
+                <div class="stat-value">132/75</div>
+                <div class="stat-label">Blood Pressure</div>
+                <div class="goal-text">Monitoring</div>
+            </div>
+            
+            <div class="stat-box">
+                <div class="stat-value">64</div>
+                <div class="stat-label">Heart Rate (bpm)</div>
+                <div class="goal-text">Optimal</div>
+            </div>
+            
+            <div class="stat-box">
+                <div class="stat-value">64</div>
+                <div class="stat-label">VO2 Max</div>
+                <div class="goal-text">Good fitness</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="card">
+        <h2>🎯 Recommendations</h2>
+        <div class="recommendations">
+            <strong>Daily Goals:</strong><br>
+            - Walk 10,000 steps after work<br>
+            - Gym 3x/week<br>
+            - Drink 2.5-3L water<br>
+            - Monitor BP regularly<br>
+            - Sleep 7-8 hours<br><br>
+            <strong>Progress:</strong><br>
+            - Weight stable at 163.3 lbs<br>
+            - BP slightly elevated (132/75)<br>
+            - Heart rate excellent (64 bpm)<br>
+            - VO2 max improving
+        </div>
+    </div>
+</body>
+</html>

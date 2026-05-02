@@ -1,0 +1,16 @@
+{
+  "defaults": {
+    "model": {
+      "primary": "ollama/qwen3.5:latest",
+      "fallbacks": [
+        "ollama/qwen3-coder:latest",
+        "ollama/qwen3.6:latest"
+      ]
+    }
+  },
+  "models": {
+    "ollama/qwen3.5:latest": {},
+    "ollama/qwen3-coder:latest": {},
+    "ollama/qwen3.6:latest": {}
+  }
+}

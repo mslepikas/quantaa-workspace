@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slepikas Family Portal</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      color: white;
+    }
+
+    .container {
+      text-align: center;
+      max-width: 800px;
+      width: 100%;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      animation: fadeIn 1s ease-in;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+      opacity: 0.9;
+      animation: fadeIn 1.5s ease-in;
+    }
+
+    .portal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      max-width: 800px;
+      margin: 0 auto;
+      animation: fadeIn 2s ease-in;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 40px 20px;
+      text-decoration: none;
+      color: white;
+      transition: all 0.3s ease;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      background: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+
+    .card-icon {
+      font-size: 4rem;
+      margin-bottom: 20px;
+    }
+
+    .card h2 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 1rem;
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+
+    .footer {
+      margin-top: 50px;
+      font-size: 0.9rem;
+      opacity: 0.7;
+      animation: fadeIn 2.5s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+      .subtitle {
+        font-size: 1rem;
+      }
+      .card {
+        padding: 30px 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>slepikas.net</h1>
+    <p class="subtitle">Welcome to the Slepikas portal</p>
+
+    <div class="portal-grid">
+      <a href="https://mark.slepikas.net" class="card" target="_blank" rel="noopener">
+        <div class="card-icon">👨‍💼</div>
+        <h2>Mark</h2>
+        <p>Mark's personal page and portfolio<br>Technology, projects, and life</p>
+      </a>
+
+      <a href="https://risa.slepikas.net" class="card" target="_blank" rel="noopener">
+        <div class="card-icon">👩</div>
+        <h2>Risa</h2>
+        <p>Risa's personal page and portfolio<br>Art, designs, and hobbies</p>
+      </a>
+    </div>
+
+    <div class="footer">
+      © Slepi kas Portal
+    </div>
+  </div>
+
+  <script>
+    // Add subtle floating animation
+    document.querySelectorAll('.card').forEach((card, index) => {
+      card.style.animation = `float 3s ease-in-out infinite ${index * 0.5}s`;
+    });
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+  </script>
+</body>
+</html>

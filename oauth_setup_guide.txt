@@ -1,0 +1,337 @@
+=== OPENAI OAUTH SETUP GUIDE ===
+=============================
+
+CURRENT STATUS:
+================
+
+❌ Using: API Key (sk-proj-...)
+✅ Goal: OAuth 2.0 + Environment file
+✅ Ultimate: Password manager integration
+
+STEPS TO MIGRATE:
+================
+
+STEP 1: SET UP ENVIRONMENT FILE
+===================
+1. Create .env file (encrypted)
+2. Store API keys in .env
+3. Load from env in OpenClaw
+
+STEP 2: ENABLE OAUTH (OPTIONAL)
+===================
+1. Set up OpenAI OAuth
+2. Use OAuth tokens instead of keys
+3. More secure than API keys
+
+STEP 3: PASSWORD MANAGER INTEGRATION
+===================
+1. Export to password manager
+2. Auto-fill in OpenClaw
+3. Encrypted storage
+
+SECURITY BEST PRACTICES:
+========================
+- .env file: chmod 600
+- Password manager: Bitwarden, 1Password
+- Never commit keys to Git
+- Rotate keys quarterly
+- Use OAuth when available
+
+ENVIRONMENT FILE LOCATION:
+=====================
+~/.openclaw/.env
+
+SAMPLE .env FILE:
+=================
+
+# OpenAI API Configuration
+OPENAI_API_KEY=sk-proj-xxxxx
+OPENAI_BASE_URL=https://api.openai.com/v1
+
+# OAuth (if available)
+OPENAI_CLIENT_ID=xxxxx
+OPENAI_CLIENT_SECRET=xxxxx
+
+# Alternative providers
+OLLAMA_API_KEY=ollama-local
+OLLAMA_BASE_URL=http://127.0.0.1:11434
+
+ENVIRONMENT SECURITY:
+==================
+
+1. File Permissions:
+chmod 600 ~/.openclaw/.env
+chmod go-w ~/.openclaw/.env
+
+2. Encryption Options:
+- GPG encryption
+- age encryption
+- Password manager encryption
+
+3. Password Manager:
+- Bitwarden
+- 1Password
+- KeePassXC
+- LastPass
+
+4. Export to Password Manager:
+- Export key from .env
+- Import to password manager
+- Auto-fill in OpenClaw
+
+OPENAI OAUTH FLOW:
+==================
+
+1. Register OAuth app
+2. Get client ID/secret
+3. User grants permission
+4. OAuth token received
+5. Use token instead of API key
+
+OAuth Benefits:
+- Shorter lifespan tokens
+- Revocable access
+- Better audit trail
+- User consent
+
+PASSWORD MANAGER SETUP:
+====================
+
+Bitwarden Example:
+==================
+
+1. Install Bitwarden
+2. Create collection
+3. Add OpenClaw credentials
+4. Auto-fill in OpenClaw
+
+1Password Example:
+==================
+
+1. Install 1Password
+2. Add OpenClaw item
+3. API keys / OAuth tokens
+4. Auto-fill capability
+
+KeePassXC Example:
+==================
+
+1. Install KeePassXC
+2. Create database
+3. Add OpenClaw entry
+4. Import from .env
+
+ENVIRONMENT VARIABLE USAGE:
+====================
+
+In OpenClaw config:
+
+{
+  "models": {
+    "providers": {
+      "openai": {
+        "apiKey": "${OPENAI_API_KEY}",
+        "baseUrl": "${OPENAI_BASE_URL}"
+      }
+    }
+  }
+}
+
+Or in shell:
+export OPENAI_API_KEY="..."
+
+OAUTH TOKEN REFRESH:
+===================
+
+OAuth tokens expire!
+- Set refresh mechanism
+- Auto-refresh before expiry
+- Handle token rotation
+
+SAMPLE SCRIPT:
+==============
+
+#!/bin/bash
+# refresh_openai_tokens.sh
+
+source ~/.openclaw/.env
+export OPENAI_TOKEN=$(get_oauth_token)
+echo "Token refreshed successfully"
+
+IMPLEMENTATION PLAN:
+=================
+
+PHASE 1: ENVIRONMENT FILE
+===================
+1. Create .env file
+2. Store current API key
+3. Set permissions (600)
+4. Test loading from env
+
+PHASE 2: OAUTH SETUP
+=================
+1. Register OAuth app
+2. Get client credentials
+3. Implement OAuth flow
+4. Test token refresh
+
+PHASE 3: PASSWORD MANAGER
+==================
+1. Choose password manager
+2. Import current credentials
+3. Configure auto-fill
+4. Test integration
+
+PHASE 4: MIGRATION
+===============
+1. Remove keys from config
+2. Reference from env
+3. Set up refresh mechanism
+4. Document process
+
+SECURITY CHECKLIST:
+==================
+
+- [ ] .env file permissions: 600
+- [ ] No keys in Git
+- [ ] Password manager configured
+- [ ] OAuth tokens set up
+- [ ] Token refresh working
+- [ ] Audit trail enabled
+- [ ] Key rotation scheduled
+- [ ] Backup credentials secure
+
+ADVANCED SECURITY:
+===================
+
+1. GPG Encryption:
+gpg --encrypt --recipient me@example.com ~/.openclaw/.env
+
+2. Age Encryption:
+age-keygen -o ~/.openclaw/age-key
+age -r ~/.openclaw/age-key --encrypt ~/.openclaw/.env
+
+3. HashiCorp Vault:
+- Store secrets in Vault
+- Inject into OpenClaw
+- Dynamic credentials
+
+4. Cloud KMS:
+- AWS KMS
+- Azure Key Vault
+- GCP Cloud KMS
+
+MIGRATION STEPS:
+=================
+
+STEP 1: Create .env
+==================
+Create file: ~/.openclaw/.env
+Content: API keys, OAuth tokens
+Permissions: chmod 600
+
+STEP 2: Update OpenClaw
+===================
+Modify openclaw.json:
+{
+  "models": {
+    "providers": {
+      "openai": {
+        "apiKey": "${OPENAI_API_KEY}",
+        "baseUrl": "${OPENAI_BASE_URL}"
+      }
+    }
+  }
+}
+
+STEP 3: Load Environment
+====================
+In OpenClaw startup:
+source ~/.openclaw/.env
+OR
+export $(cat ~/.openclaw/.env | xargs)
+
+STEP 4: Set Up Password Manager
+===========================
+1. Import credentials
+2. Configure auto-fill
+3. Test in OpenClaw
+
+STEP 5: OAuth (Optional)
+===================
+1. Register OAuth app
+2. Get client credentials
+3. Implement OAuth flow
+4. Refresh tokens
+
+MONITORING:
+==========
+
+Track:
+- Token expiry
+- Usage patterns
+- Access logs
+- Security alerts
+
+ALERTS:
+======
+
+Set up alerts for:
+- Token expiry
+- Unusual access
+- Key rotation
+- Security incidents
+
+TESTING:
+======
+
+Test before migrating:
+1. Load from .env
+2. Verify API works
+3. Check OAuth flow
+4. Test password manager
+5. Validate security
+
+ROLLBACK PLAN:
+============
+
+If issues occur:
+1. Keep old config as backup
+2. Restore from Git
+3. Revert to API key
+4. Debug issues
+
+FUTURE:
+======
+
+Goal: Password manager only
+- No .env file (optional)
+- All keys in password manager
+- Auto-fill in OpenClaw
+- Encrypted storage
+
+ROADMAP:
+=======
+
+Month 1:
+- Set up .env
+- Migrate API keys
+- Test security
+
+Month 2:
+- Implement OAuth
+- Set up password manager
+- Test integration
+
+Month 3:
+- Complete migration
+- Remove .env (optional)
+- Full password manager use
+
+ONGOING:
+=======
+
+- Rotate keys quarterly
+- Monitor token expiry
+- Audit access logs
+- Update security practices

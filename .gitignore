@@ -1,0 +1,35 @@
+# OpenClaw workspace .gitignore
+
+# Backup files
+*.tar.gz
+*.tar.bz2
+*.zip
+*.rar
+
+# Node modules
+node_modules/
+linux-monitor-system/frontend/node_modules/
+
+# Git directories
+.git/
+
+# OpenClaw internal (no secrets)
+.openclaw/
+.claude/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Large builds
+/dist/
+/build/
+__pycache__/
+*.pyc

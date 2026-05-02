@@ -1,0 +1,20 @@
+[Unit]
+Description=Linux Monitor System Dashboard
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+User=mslepikas
+Group=mslepikas
+WorkingDirectory=/home/mslepikas/.openclaw/workspace/linux-monitor-system/backend
+Environment="PATH=/usr/local/bin:/usr/bin:/bin"
+ExecStart=/usr/local/bin/python3 main.py
+Restart=on-failure
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=linux-monitor-system
+
+[Install]
+WantedBy=multi-user.target

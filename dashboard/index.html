@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quantaa Mission Control</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0a0a0f;
+      color: #e0e0e0;
+      min-height: 100vh;
+      padding: 24px;
+    }
+
+    .header {
+      text-align: center;
+      padding: 32px 0;
+      border-bottom: 1px solid #1e1e2e;
+      margin-bottom: 32px;
+    }
+
+    .header h1 {
+      font-size: 28px;
+      font-weight: 600;
+      background: linear-gradient(135deg, #ff6b35, #ffa626);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+    }
+
+    .header .subtitle {
+      color: #888;
+      font-size: 14px;
+    }
+
+    .system-stats {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .stat-card {
+      background: #12121a;
+      border: 1px solid #1e1e2e;
+      border-radius: 12px;
+      padding: 20px 24px;
+      min-width: 160px;
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 24px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .agents-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .agent-card {
+      background: #12121a;
+      border: 1px solid #1e1e2e;
+      border-radius: 12px;
+      padding: 20px;
+      transition: all 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .agent-card:hover {
+      border-color: #2a2a3e;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .agent-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #ff6b35, #ffa626);
+    }
+
+    .agent-card.business::before {
+      background: linear-gradient(90deg, #4a9eff, #2196f3);
+    }
+
+    .agent-card.personal::before {
+      background: linear-gradient(90deg, #a855f7, #8b5cf6);
+    }
+
+    .agent-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .agent-emoji {
+      font-size: 28px;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,107,53,0.1);
+      border-radius: 10px;
+    }
+
+    .agent-card.business .agent-emoji {
+      background: rgba(74,158,255,0.1);
+    }
+
+    .agent-card.personal .agent-emoji {
+      background: rgba(168,85,247,0.1);
+    }
+
+    .agent-info h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+
+    .agent-role {
+      font-size: 12px;
+      color: #888;
+    }
+
+    .agent-status {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 8px rgba(34,197,94,0.4);
+    }
+
+    .status-text {
+      font-size: 12px;
+      color: #888;
+    }
+
+    .agent-details {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .detail-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6px 0;
+      border-bottom: 1px solid #1a1a2a;
+    }
+
+    .detail-row:last-child {
+      border-bottom: none;
+    }
+
+    .detail-label {
+      font-size: 11px;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .detail-value {
+      font-size: 12px;
+      color: #ccc;
+      font-family: 'SF Mono', Monaco, monospace;
+      text-align: right;
+    }
+
+    .current-task {
+      margin-top: 12px;
+      padding: 10px 12px;
+      background: #1a1a2a;
+      border-radius: 8px;
+      font-size: 12px;
+      color: #aaa;
+    }
+
+    .current-task-label {
+      font-size: 10px;
+      color: #666;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .current-task-text {
+      line-height: 1.4;
+    }
+
+    .model-badge {
+      display: inline-block;
+      padding: 3px 8px;
+      background: #1e1e2e;
+      border-radius: 4px;
+      font-size: 11px;
+      color: #aaa;
+      font-family: 'SF Mono', Monaco, monospace;
+    }
+
+    .group-label {
+      font-size: 12px;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin: 24px 0 12px 0;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #1e1e2e;
+    }
+
+    .last-update {
+      text-align: center;
+      color: #666;
+      font-size: 12px;
+      padding: 24px 0;
+      border-top: 1px solid #1e1e2e;
+      margin-top: 32px;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .status-dot {
+      animation: pulse 2s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>🦞 Quantaa Mission Control</h1>
+    <div class="subtitle">Agent Dashboard • Real-time Overview</div>
+  </div>
+
+  <div class="system-stats" id="systemStats">
+    <div class="stat-card">
+      <div class="stat-value" id="agentsOnline">8</div>
+      <div class="stat-label">Agents Online</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">GB10</div>
+      <div class="stat-label">Platform</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">99.2%</div>
+      <div class="stat-label">Uptime</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">45%</div>
+      <div class="stat-label">Disk Usage</div>
+    </div>
+  </div>
+
+  <div class="group-label">Business Group</div>
+  <div class="agents-grid" id="businessAgents"></div>
+
+  <div class="group-label">Personal Group</div>
+  <div class="agents-grid" id="personalAgents"></div>
+
+  <div class="last-update" id="lastUpdate">
+    Last updated: --
+  </div>
+
+  <script>
+    const agents = [
+      { id: 'q', name: 'Q', emoji: '🐾', role: 'Developer', group: 'business', model: 'ollama/qwen3-coder:latest', status: 'online', mission: 'Code, automation, scripts, OpenClaw config', task: 'Mission Control development' },
+      { id: 'danno', name: 'Danno', emoji: '🛡️', role: 'Security', group: 'business', model: 'ollama/qwen3.6:latest', status: 'online', mission: 'Protection, monitoring, log review', task: 'Security posture review' },
+      { id: 'scout', name: 'Scout', emoji: '🔍', role: 'Researcher', group: 'business', model: 'openai/gpt-5.4', status: 'online', mission: 'Market research, web scouting', task: 'Market intelligence daily report' },
+      { id: 'fin', name: 'Fin', emoji: '💰', role: 'Banking', group: 'business', model: 'openai/gpt-5.4', status: 'online', mission: 'Finance, market data, budgets', task: 'Daily market report' },
+      { id: 'ash', name: 'Ash', emoji: '✈️', role: 'Social/Travel', group: 'personal', model: 'openai/gpt-5.4', status: 'online', mission: 'Trips, hotels, flights, social', task: 'Travel workflow setup' },
+      { id: 'flo', name: 'Flo', emoji: '🧹', role: 'Housekeeping', group: 'personal', model: 'ollama/qwen3.5:latest', status: 'online', mission: 'Home management, shopping', task: 'Home task tools setup' },
+      { id: 'jerrica', name: 'Jerrica', emoji: '🖊️', role: 'Personal Assistant', group: 'personal', model: 'openai/gpt-5.4', status: 'online', mission: 'Email, calendar, contacts', task: 'Apple Wallet task paid ✓' },
+      { id: 'atlas', name: 'Atlas', emoji: '💪', role: 'Health/Fitness', group: 'personal', model: 'ollama/qwen3.6:latest', status: 'online', mission: 'Workout plans, fitness tracking', task: 'Fitness workflow design' }
+    ];
+
+    function renderAgent(agent) {
+      return `
+        <div class="agent-card ${agent.group}">
+          <div class="agent-header">
+            <div class="agent-emoji">${agent.emoji}</div>
+            <div class="agent-info">
+              <h3>${agent.name}</h3>
+              <div class="agent-role">${agent.role}</div>
+            </div>
+          </div>
+          <div class="agent-status">
+            <div class="status-dot"></div>
+            <div class="status-text">${agent.status.charAt(0).toUpperCase() + agent.status.slice(1)}</div>
+          </div>
+          <div class="agent-details">
+            <div class="detail-row">
+              <span class="detail-label">Model</span>
+              <span class="model-badge">${agent.model}</span>
+            </div>
+          </div>
+          <div class="current-task">
+            <div class="current-task-label">Current Task</div>
+            <div class="current-task-text">${agent.task}</div>
+          </div>
+        </div>
+      `;
+    }
+
+    document.getElementById('businessAgents').innerHTML = agents
+      .filter(a => a.group === 'business')
+      .map(renderAgent)
+      .join('');
+
+    document.getElementById('personalAgents').innerHTML = agents
+      .filter(a => a.group === 'personal')
+      .map(renderAgent)
+      .join('');
+
+    document.getElementById('lastUpdate').textContent = `Last updated: ${new Date().toLocaleTimeString()}`;
+
+    // Auto-refresh every 30 seconds
+    setInterval(() => {
+      document.getElementById('lastUpdate').textContent = `Last updated: ${new Date().toLocaleTimeString()}`;
+    }, 30000);
+  </script>
+</body>
+</html>

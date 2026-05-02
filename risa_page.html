@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Risa Slepikas - Art & Design</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Courier New', monospace;
+      background: #0a0a0a;
+      color: #cc99ff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      text-align: center;
+      max-width: 600px;
+      width: 100%;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+      color: #cc99ff;
+      text-shadow: 0 0 10px rgba(204, 153, 255, 0.5);
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      color: #e0c4ff;
+    }
+
+    .bio {
+      font-size: 1rem;
+      margin-bottom: 40px;
+      color: #d4b8ff;
+      line-height: 1.6;
+    }
+
+    .favorites {
+      font-size: 1rem;
+      margin-bottom: 30px;
+      color: #d4b8ff;
+    }
+
+    .favorites h3 {
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+      color: #cc99ff;
+    }
+
+    .links a {
+      display: block;
+      margin: 12px 0;
+      padding: 12px 20px;
+      text-decoration: none;
+      color: #cc99ff;
+      border: 1px solid #cc99ff;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+    }
+
+    .links a:hover {
+      background: #cc99ff;
+      color: #0a0a0a;
+      box-shadow: 0 0 15px #cc99ff;
+    }
+
+    .footer {
+      margin-top: 50px;
+      font-size: 0.9rem;
+      color: #888;
+    }
+
+    .datetime {
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+      .subtitle {
+        font-size: 1rem;
+      }
+      .bio {
+        font-size: 0.9rem;
+      }
+      .links a {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>RISA</h1>
+    <p class="subtitle">ART & DESIGN</p>
+
+    <p class="bio">
+      University of South Florida Graduate<br>
+      Music & Communications Major<br>
+      Creative Designer & Digital Artist
+    </p>
+
+    <div class="favorites">
+      <h3>🎉 FAVORITE TEAMS</h3>
+      <a href="https://www.nhl.com/lightning" target="_blank">🏒 NHL Tampa Bay Lightning</a>
+      <a href="https://gousfbulls.com" target="_blank">🐂 USF Bulls Athletics</a>
+      <a href="https://www.tampasunsoccer.com" target="_blank">⚽ Tampa Sun Soccer</a>
+    </div>
+
+    <div class="links">
+      <a href="https://www.instagram.com">📸 Instagram</a>
+      <a href="https://www.twitter.com">🐦 Twitter/X</a>
+      <a href="https://slepikas.net">← Back to Portal</a>
+      <a href="mailto:risa@slepikas.net">✉️ Contact Risa</a>
+    </div>
+
+    <div class="footer">© 2026 Risa Slepikas</div>
+
+    <div class="datetime" id="datetime"></div>
+
+    <script>
+      function updateTime() {
+        const now = new Date();
+        const options = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' };
+        const date = now.toLocaleDateString(undefined, options);
+        const time = now.toLocaleTimeString();
+        document.getElementById('datetime').innerText = `${date} | ${time}`;
+      }
+
+      setInterval(updateTime, 1000);
+      updateTime();
+    </script>
+  </div>
+</body>
+</html>

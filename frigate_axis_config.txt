@@ -1,0 +1,352 @@
+=== FRIGATE AXIS 6225 PTZ CONFIGURATION ===
+========================================
+
+CAMERA: Axis 6225 PTZ (Pan-Tilt-Zoom)
+=====================================
+
+AXIS 6225 FEATURES:
+====================
+
+- 4MP (2592 x 1944)
+- PTZ (Pan-Tilt-Zoom)
+- Built-in microphone
+- Wide dynamic range
+- ColorVu technology
+- IR illumination (optional)
+- 20x optical zoom
+- 360° pan
+- 180° tilt
+
+FRIGATE CONFIGURATION:
+===================
+
+YAML CONFIG STRUCTURE:
+===============
+
+cameras:
+  AXIS_Cameras:
+    name: AXIS_6225
+    ffmpeg:
+      inputs:
+        - path: rtsp://[username]:[password]@[ip]:554/path
+          roles:
+            - detect
+            - rtmp
+    rtmp:
+      record: no
+    detect:
+      width: 640
+      height: 480
+      fps: 5
+    tracked_detection:
+      enabled: true
+      max_dist: 1.5
+      min_score: 0.5
+      min_track_interval: 3
+      max_frames: 200
+      track_mask: true
+      mask_radius: 20
+    objects:
+      - person
+      - car
+      - truck
+    live:
+      max_width: 1920
+      max_height: 1080
+
+PTZ CONTROL CONFIG:
+===================
+
+AXIS PTZ SETUP:
+================
+
+In Frigate, Axis PTZ is controlled via:
+- REST API calls
+- MQTT commands
+- Direct HTTP requests
+
+PTZ CONFIG FILE:
+===============
+
+# Add to frigate.yml
+
+ptz_devices:
+  axis_6225:
+    camera_id: AXIS_Cameras
+    manufacturer: AXIS
+    device_id: AXIS_6225
+    max_tilt: 90
+    min_tilt: -30
+    max_pan: 360
+    min_pan: 0
+    max_zoom: 20
+    min_zoom: 1
+    commands:
+      pan:
+        - id: 0
+          value: 0
+          description: Left
+        - id: 1
+          value: 360
+          description: Left
+        - id: 2
+          value: 180
+          description: Left
+        - id: 3
+          value: 90
+          description: Left
+      tilt:
+        - id: 0
+          value: 0
+          description: Down
+        - id: 1
+          value: 90
+          description: Up
+        - id: 2
+          value: -30
+          description: Down
+        - id: 3
+          value: 90
+          description: Up
+      zoom:
+        - id: 0
+          value: 1
+          description: Zoom Out
+        - id: 1
+          value: 20
+          description: Zoom In
+
+TRACKING ENABLED:
+===============
+
+tracked_detection:
+  enabled: true
+  max_dist: 1.5
+  min_score: 0.5
+  min_track_interval: 3
+  max_frames: 200
+  track_mask: true
+  mask_radius: 20
+
+OBJECTS TO TRACK:
+===============
+
+- person
+- car
+- truck
+- bicycle
+- motorcycle
+- animal (dog, cat)
+- bus
+- truck
+- trailer
+
+PTZ COMMANDS VIA FRIGATE:
+======================
+
+# In frigate.yml
+
+ptz:
+  axis_6225:
+    commands:
+      - id: 1
+        value: 0x00
+        description: Pan Left
+      - id: 2
+        value: 0x01
+        description: Pan Right
+      - id: 3
+        value: 0x02
+        description: Tilt Up
+      - id: 4
+        value: 0x03
+        description: Tilt Down
+      - id: 5
+        value: 0x04
+        description: Zoom In
+      - id: 6
+        value: 0x05
+        description: Zoom Out
+      - id: 7
+        value: 0x00
+        description: Preset Position
+
+# Or use API calls
+
+# Get PTZ status
+curl http://[ip]/axis/cmi/ptz/getPosition
+
+# Move camera
+curl -X POST http://[ip]/axis/cmi/ptz/GoToPreset \
+  -d "PresetNumber=1" \
+  -d "MaxSpeed=1.0"
+
+# Pan/Tilt
+curl -X POST http://[ip]/axis/cmi/ptz/PanTilt \
+  -d "PresetName=left" \
+  -d "MaxSpeed=1.0"
+
+# Zoom
+curl -X POST http://[ip]/axis/cmi/ptz/Zoom \
+  -d "PresetName=in" \
+  -d "MaxSpeed=1.0"
+
+TRACKING SETUP:
+===========
+
+1. Enable object detection
+2. Set tracking parameters
+3. Configure PTZ limits
+4. Enable mask tracking
+5. Set minimum score
+
+In frigate.yml:
+cameras:
+  AXIS_Cameras:
+    name: AXIS_6225
+    ffmpeg:
+      inputs:
+        - path: rtsp://[user]:[pass]@[ip]:554/path
+          roles:
+            - detect
+    detect:
+      width: 640
+      height: 480
+      fps: 5
+    track:
+      enabled: true
+      max_dist: 1.5
+      min_score: 0.5
+      track_mask: true
+
+# Full camera config
+
+cameras:
+  AXIS_PTZ_Camera:
+    name: AXIS_6225_PTZ
+    ffmpeg:
+      inputs:
+        - path: rtsp://user:pass@192.168.1.100:554/h264/share/
+          roles:
+            - detect
+            - rtmp
+    rtmp:
+      record: no
+    detect:
+      width: 640
+      height: 480
+      fps: 5
+    live:
+      max_width: 1920
+      max_height: 1080
+    objects:
+      - person
+      - car
+      - truck
+    ptz:
+      commands:
+        - id: 1
+          value: 0x00
+          description: Pan Left
+        - id: 2
+          value: 0x01
+          description: Pan Right
+        - id: 3
+          value: 0x02
+          description: Tilt Up
+        - id: 4
+          value: 0x03
+          description: Tilt Down
+      ptz_max: 360
+      ptz_min: 0
+    tracked_detection:
+      enabled: true
+      max_dist: 1.5
+      min_score: 0.5
+      min_track_interval: 3
+      max_frames: 200
+      track_mask: true
+
+TRACKING PEOPLE:
+============
+
+To track people specifically:
+
+1. Enable person detection
+2. Set minimum score: 0.5
+3. Enable tracking
+4. Set max_dist to 1.5
+5. Enable track_mask
+
+Example:
+
+cameras:
+  AXIS_PTZ:
+    name: AXIS_6225
+    ffmpeg:
+      inputs:
+        - path: rtsp://user:pass@[ip]:554/path
+          roles:
+            - detect
+    detect:
+      width: 640
+      height: 480
+      fps: 5
+    objects:
+      - person
+    tracked_detection:
+      enabled: true
+      max_dist: 1.5
+      min_score: 0.5
+      track_mask: true
+      mask_radius: 20
+
+CONFIG FILE LOCATION:
+============
+
+Save to: frigate.yml
+Or: /etc/frigate/frigate.yml
+Or: /path/to/frigate/config.yml
+
+RESTART FRIGATE:
+============
+
+After editing config:
+1. Save frigate.yml
+2. systemctl restart frigate
+3. Or: docker-compose restart frigate
+
+TEST CONNECTION:
+============
+
+curl http://[ip]/axis/cmi/ptz/getPosition
+
+OR
+
+frigate --debug
+
+TROUBLESHOOTING:
+============
+
+If PTZ not working:
+- Check API credentials
+- Verify camera supports PTZ
+- Enable PTZ in camera settings
+- Check network connectivity
+
+If tracking not working:
+- Enable detect role
+- Set proper resolution
+- Adjust tracking parameters
+- Increase min_score if needed
+- Check object detection models
+
+OPTIMIZATION:
+============
+
+For better tracking:
+- Use H.264 not H.265
+- Set fps to 5 (not too high)
+- Enable track_mask
+- Set appropriate min_score
+- Adjust max_dist

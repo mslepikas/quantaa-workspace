@@ -1,0 +1,68 @@
+=== FLO INVENTORY MANAGEMENT SYSTEM ===
+Location: 216 Charlemagne Circle, Ponte Vedra Beach, FL 32082
+Status: ACTIVE
+Last Updated: 2026-04-29 07:38 EDT
+
+=== CURRENT INVENTORY STATUS ===
+
+Category: DAIRY-FREE YOGURT
+- Non-dairy yogurt (coconut, almond, oat)
+- Reorder Level: 2 containers
+- Current Status: Monitor - check refrigerator stock
+- Action: Check and restock as needed
+
+Category: CLEANING SUPPLIES
+- Dish soap: Monitor monthly
+- All-purpose cleaner: Monitor monthly
+- Glass cleaner: Monitor monthly
+- Laundry detergent: Monitor monthly
+- Trash bags: Monitor monthly
+- Action: Review and reorder low items
+
+Category: GROCERIES
+- Fresh produce: Check weekly
+- Frozen foods: Check weekly
+- Non-perishables: Check weekly
+- Action: Weekly grocery review scheduled
+
+Category: HOUSEHOLD ITEMS
+- Light bulbs: Track replacements
+- Batteries: Track replacements
+- Air filters: Track replacements
+- Cleaning tools: Track replacements
+- Action: Monthly review
+
+=== SHOPPING LOCATIONS ===
+- Kroger: 1000 N Ocean, Ponte Vedra Beach
+- Publix: 1100 N Ocean, Ponte Vedra Beach
+- Whole Foods: 6019 N Ocean, Ponte Vedra Beach
+- Delivery/Pickup: Available at all locations
+
+=== HOUSEHOLD AUTOMATION STATUS ===
+- Smart devices: Monitor daily
+- Security system: Check status
+- Thermostat: Review settings
+- Lighting: Verify schedules
+- Appliances: Status check
+
+=== CLEANING SCHEDULE ===
+- Daily: General tidying
+- Weekly: Deep clean specific areas
+- Monthly: Deep cleaning and maintenance
+- Seasonal: Comprehensive deep clean
+
+=== WEEKLY SUMMARY (Sunday) ===
+- Household supply consumption review
+- Energy efficiency check
+- Security system update
+- Cleaning schedule adjustment
+- Shopping list compilation
+
+=== COMMANDS ===
+"Get Flo to check inventory"
+"Get Flo to order groceries"
+"Get Flo to update stock levels"
+"Get Flo to scan products"
+"Get Flo to reorder supplies"
+"Get Flo to check household automation"
+"Get Flo to review cleaning schedule"

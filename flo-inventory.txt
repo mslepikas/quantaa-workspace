@@ -1,0 +1,79 @@
+=== FLO INVENTORY MANAGEMENT SYSTEM ===
+Location: 216 Charlemagne Circle, Ponte Vedra Beach, FL 32082
+Status: ACTIVE
+Last Updated: Thu 2026-04-16 09:18 EDT
+
+=== CURRENT INVENTORY ===
+
+Category: DAIRY-FREE YOGURT
+- Non-dairy yogurt (coconut, almond, oat)
+- Quantity: TBD
+- Location: Refrigerator (assigned)
+- Expiration: Check dates
+- Reorder level: 2 containers
+
+Category: CLEANING SUPPLIES
+- Dish soap
+- All-purpose cleaner
+- Glass cleaner
+- Laundry detergent
+- Trash bags
+- Status: Monitor monthly
+
+Category: GROCERIES
+- Non-perishables
+- Fresh produce
+- Frozen foods
+- Status: Weekly check
+
+Category: HOUSEHOLD
+- Light bulbs
+- Batteries
+- Air filters
+- Cleaning tools
+- Status: Track replacements
+
+=== INVENTORY TRACKING ===
+
+Method:
+- QR code scanning
+- Manual entry
+- Photo documentation
+- Expiration tracking
+- Stock level alerts
+
+Alerts:
+- Low stock warning
+- Expiration reminder
+- Auto-reorder trigger
+- Price comparison
+
+Shopping:
+- Kroger (1000 N Ocean)
+- Publix (1100 N Ocean)
+- Whole Foods (6019 N Ocean)
+- Delivery or pickup options
+
+=== NEXT STEPS ===
+
+1. Scan/enter current inventory
+2. Set reorder thresholds
+3. Configure auto-ordering
+4. Schedule regular checks
+5. Track expiration dates
+
+=== COMMANDS ===
+
+"Get Flo to check inventory"
+"Get Flo to order groceries"
+"Get Flo to update stock levels"
+"Get Flo to scan products"
+"Get Flo to reorder supplies"
+
+=== NOTES ===
+
+- Start with essential items
+- Track frequently used products
+- Set up automatic ordering
+- Review monthly
+- Adjust reorder levels

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Goals, Calendar, and Todo Tracker</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <h1>Goals and Calendar Tracker</h1>
+        <p>Set goals, track tasks, and see your progress.</p>
+      </div>
+      <div class="topbar-actions">
+        <button id="restoreBackupBtn" class="secondary-btn">Restore Backup</button>
+        <button id="clearDataBtn" class="danger-btn">Clear Data</button>
+      </div>
+    </header>
+
+    <main class="dashboard-grid">
+      <section class="panel form-panel">
+        <h2>Create Goal</h2>
+        <form id="goalForm" class="stack">
+          <input id="goalTitle" type="text" placeholder="Goal title" required />
+          <textarea id="goalDescription" placeholder="Description"></textarea>
+          <div class="inline-grid">
+            <input id="goalTargetDate" type="date" />
+            <input id="goalTargetTasks" type="number" min="1" value="5" placeholder="Target tasks" />
+          </div>
+          <button type="submit">Add Goal</button>
+        </form>
+      </section>
+
+      <section class="panel form-panel">
+        <h2>Create Task</h2>
+        <form id="taskForm" class="stack">
+          <input id="taskTitle" type="text" placeholder="Task title" required />
+          <textarea id="taskNotes" placeholder="Notes"></textarea>
+          <div class="inline-grid">
+            <select id="taskGoalId"></select>
+            <input id="taskDueDate" type="date" />
+          </div>
+          <button type="submit">Add Task</button>
+        </form>
+      </section>
+
+      <section class="panel stats-panel">
+        <h2>Overview</h2>
+        <div class="stats-grid">
+          <div class="stat-card"><span>Goals</span><strong id="totalGoals">0</strong></div>
+          <div class="stat-card"><span>Total Tasks</span><strong id="totalTasks">0</strong></div>
+          <div class="stat-card"><span>Completed</span><strong id="completedTasks">0</strong></div>
+          <div class="stat-card"><span>Progress</span><strong id="overallProgress">0%</strong></div>
+        </div>
+      </section>
+
+      <section class="panel chart-panel">
+        <h2>Progress by Goal</h2>
+        <div id="goalProgressChart" class="chart-bars empty-state">No goals yet.</div>
+      </section>
+
+      <section class="panel weather-panel wide">
+        <div class="section-header">
+          <h2>Weather</h2>
+          <span class="goal-meta">32082 and San Diego</span>
+        </div>
+        <div id="weatherWidget" class="weather-grid empty-state">Loading weather...</div>
+      </section>
+
+      <section class="panel calendar-panel wide">
+        <div class="calendar-header">
+          <h2>Calendar</h2>
+          <div class="calendar-nav">
+            <button id="prevMonthBtn">◀</button>
+            <strong id="calendarMonthLabel"></strong>
+            <button id="nextMonthBtn">▶</button>
+          </div>
+        </div>
+        <div class="calendar-weekdays">
+          <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+        </div>
+        <div id="calendarGrid" class="calendar-grid"></div>
+      </section>
+
+      <section class="panel goals-panel">
+        <h2>Goals</h2>
+        <div id="goalsList" class="stack empty-state">No goals yet.</div>
+      </section>
+
+      <section class="panel tasks-panel wide">
+        <div class="section-header">
+          <h2>Tasks</h2>
+          <select id="taskFilterGoal"></select>
+        </div>
+        <div id="tasksList" class="stack empty-state">No tasks yet.</div>
+      </section>
+    </main>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>

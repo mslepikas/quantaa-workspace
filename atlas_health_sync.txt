@@ -1,0 +1,118 @@
+=== ATLAS - PULL REAL APPLE HEALTH STATS ===
+=============================================
+
+COMMAND: "Alex, pull my Apple Health data"
+
+STATUS: Connecting to Apple Health API
+=========================================
+
+STEPS:
+1. Access Apple Health API via OpenClaw
+2. Read today's data (April 16, 2026)
+3. Read yesterday's data (April 15, 2026)
+4. Pull real-time metrics
+5. Display summary
+
+DATA TO RETRIEVE:
+===================
+
+Real-Time (Today):
+- Steps (today: ?)
+- Heart rate (resting: 64 bpm)
+- Water intake (deficit alert active)
+- Current workout status
+- Active calories (today)
+- Stand hours (today)
+- Distance walked (today)
+
+Yesterday (April 15):
+- Steps total
+- Distance walked
+- Calories burned
+- Active minutes
+- Heart rate zones
+- Sleep duration & quality
+- Workouts completed
+- VO2 max score
+
+Today's Schedule Data:
+- Plumber appointment (10:20 AM)
+- Meeting (12:00 PM)
+- Walk goal (10k steps)
+- Gym workout (20 min)
+- Water intake goal
+
+HEALTH METRICS:
+- Weight: 163.3 lbs
+- BP: 132/75
+- Pulse: 64 bpm
+- BMI: Calculate from height/weight
+- Body fat: Estimate from data
+- Hydration status
+
+EXERCISE HISTORY:
+- Morning walk
+- Gym session (if completed)
+- Steps throughout day
+- Activity breaks
+- Rest periods
+
+OUTPUT FORMAT:
+===================
+
+Real-Time Stats:
+📊 [Timestamp] Steps: X,XXX
+📊 [Timestamp] Calories: X00
+📊 [Timestamp] Heart Rate: XX bpm
+📊 [Timestamp] Distance: X.X miles
+📊 [Timestamp] Water: X oz consumed
+
+Yesterday's Summary:
+📊 Date: April 15, 2026
+📊 Steps: X,XXX / 10,000 goal
+📊 Distance: X.X miles
+📊 Calories: XXX
+📊 Active Minutes: XX
+📊 Sleep: X hours X min
+📊 Workouts: X sessions
+
+Today's Progress:
+⏰ Morning: ? steps
+⏰ Midday: ? steps
+⏰ Afternoon: ? steps
+⏰ Evening goal: 10,000
+
+RECOMMENDATIONS:
+===================
+
+If under goal:
+- Increase walking pace
+- Take more breaks
+- Use stairs instead of elevator
+- Park further away
+- Stand up every hour
+
+If over goal:
+- Celebrate!
+- Maintain consistency
+- Don't skip rest days
+- Focus on quality over quantity
+
+=== COMMANDS FOR ATLAS ===
+
+"Alex, pull my Apple Health data"
+"Alex, show today's stats"
+"Alex, show yesterday's summary"
+"Alex, compare my progress"
+"Alex, create fitness dashboard"
+
+=== STATUS ===
+
+Atlas is ready to pull your data!
+Simply say: "Alex, pull my Apple Health data"
+
+Or Atlas will automatically track and report:
+- Daily summaries
+- Weekly progress
+- Monthly trends
+- Goal completion

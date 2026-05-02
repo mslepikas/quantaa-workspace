@@ -1,0 +1,104 @@
+# Frigate example config for Axis camera tracking
+# Replace MQTT and RTSP credentials before use.
+
+mqtt:
+  enabled: true
+  host: <mqtt-broker-ip>
+  port: 1883
+  user: <mqtt-user>
+  password: <mqtt-password>
+  topic_prefix: frigate
+  client_id: frigate
+  stats_interval: 60
+
+detectors:
+  cpu1:
+    type: cpu
+
+ffmpeg:
+  hwaccel_args: preset-nvidia-h264
+
+record:
+  enabled: true
+  sync_recordings: true
+  retain:
+    days: 0
+    mode: motion
+  alerts:
+    retain:
+      days: 7
+  detections:
+    retain:
+      days: 7
+
+detect:
+  enabled: true
+  width: 1280
+  height: 720
+  fps: 5
+
+objects:
+  track:
+    - person
+  filters:
+    person:
+      min_area: 1500
+      threshold: 0.7
+
+snapshots:
+  enabled: true
+  bounding_box: true
+  crop: true
+  retain:
+    default: 7
+
+cameras:
+  AxisQ6225:
+    enabled: true
+    ffmpeg:
+      inputs:
+        - path: rtsp://<user>:<password>@10.10.30.176/axis-media/media.amp
+          roles:
+            - detect
+            - record
+    objects:
+      track:
+        - person
+
+  AxisQ1922:
+    enabled: true
+    ffmpeg:
+      inputs:
+        - path: rtsp://<user>:<password>@10.10.30.172/axis-media/media.amp
+          roles:
+            - detect
+            - record
+    objects:
+      track:
+        - person
+
+  AxisP12:
+    enabled: true
+    ffmpeg:
+      inputs:
+        - path: rtsp://<user>:<password>@10.10.30.201/axis-media/media.amp
+          roles:
+            - detect
+            - record
+    objects:
+      track:
+        - person
+
+  iPhone12:
+    enabled: true
+    ffmpeg:
+      inputs:
+        - path: rtsp://<user>:<password>@10.10.50.126:8554/live
+          roles:
+            - detect
+            - record
+    objects:
+      track:
+        - person
+
+version: 0.17-0

@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "lastUpdated": "2026-04-29T19:00:00-04:00",
+  "tasks": [],
+  "priorities": {
+    "urgent": {
+      "color": "red",
+      "description": "Requires immediate attention"
+    },
+    "high": {
+      "color": "orange",
+      "description": "Should be completed within 24 hours"
+    },
+    "normal": {
+      "color": "blue",
+      "description": "Regular priority tasks"
+    },
+    "low": {
+      "color": "green",
+      "description": "Nice-to-have, can be deferred"
+    }
+  }
+}

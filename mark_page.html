@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mark Slepikas - Technology & Engineering</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Courier New', monospace;
+      background: #0a0a0a;
+      color: #00ffcc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      text-align: center;
+      max-width: 600px;
+      width: 100%;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+      color: #00ffcc;
+      text-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      color: #66ffe0;
+    }
+
+    .bio {
+      font-size: 1rem;
+      margin-bottom: 40px;
+      color: #aaa;
+      line-height: 1.6;
+    }
+
+    .links a {
+      display: block;
+      margin: 15px 0;
+      padding: 12px 20px;
+      text-decoration: none;
+      color: #00ffcc;
+      border: 1px solid #00ffcc;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+    }
+
+    .links a:hover {
+      background: #00ffcc;
+      color: #0a0a0a;
+      box-shadow: 0 0 15px #00ffcc;
+    }
+
+    .datetime {
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+      .subtitle {
+        font-size: 1rem;
+      }
+      .bio {
+        font-size: 0.9rem;
+      }
+      .links a {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>MARK</h1>
+    <p class="subtitle">TECHNOLOGY ENTHUSIAST & ENGINEER</p>
+
+    <p class="bio">
+      Network Engineer | Technology Lover<br>
+      Fiddler's Marsh, Florida<br>
+      Minnesota Vikings & Tampa Bay Lightning Fan
+    </p>
+
+    <div class="links">
+      <a href="https://github.com">🔗 GitHub Profile</a>
+      <a href="https://linkedin.com">🔗 LinkedIn Profile</a>
+      <a href="https://slepikas.net">← Back to Portal</a>
+      <a href="mailto:mark@slepikas.net">✉️ Contact Me</a>
+    </div>
+
+    <div class="datetime" id="datetime"></div>
+
+    <script>
+      function updateTime() {
+        const now = new Date();
+        const options = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' };
+        const date = now.toLocaleDateString(undefined, options);
+        const time = now.toLocaleTimeString();
+        document.getElementById('datetime').innerText = `${date} | ${time}`;
+      }
+
+      setInterval(updateTime, 1000);
+      updateTime();
+    </script>
+  </div>
+</body>
+</html>

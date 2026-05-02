@@ -1,0 +1,60 @@
+# Sanitized reference for Q: Axis camera tracking / MQTT / Frigate
+# Source config was shared by Mark on 2026-04-17.
+# Credentials were intentionally removed from this saved copy.
+
+mqtt:
+  enabled: false
+
+detectors:
+  cpu1:
+    type: cpu
+
+ffmpeg:
+  hwaccel_args: preset-nvidia-h264
+
+cameras:
+  AxisQ6225:
+    enabled: true
+    ffmpeg:
+      inputs:
+        - path: rtsp://<user>:<password>@10.10.30.176/axis-media/media.amp
+          roles: [detect, record]
+
+  AxisQ1922:
+    enabled: true
+    ffmpeg:
+      inputs:
+        - path: rtsp://<user>:<password>@10.10.30.172/axis-media/media.amp
+          roles: [detect, record]
+
+  AxisP12:
+    enabled: true
+    ffmpeg:
+      inputs:
+        - path: rtsp://<user>:<password>@10.10.30.201/axis-media/media.amp
+          roles: [detect, record]
+
+  iPhone12:
+    enabled: true
+    ffmpeg:
+      inputs:
+        - path: rtsp://<user>:<password>@10.10.50.126:8554/live
+          roles: [detect, record]
+
+record:
+  enabled: true
+  continuous:
+    days: 0
+  motion:
+    days: 7
+
+detect:
+  enabled: true
+  width: 1280
+  height: 720
+
+objects:
+  filters:
+    person: {}
+
+version: 0.17-0

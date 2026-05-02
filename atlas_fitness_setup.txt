@@ -1,0 +1,130 @@
+=== ATLAS - APPLE FITNESS INTEGRATION GUIDE ===
+==============================================
+
+STEP 1: ENABLE APPLE HEALTH SHARING
+========================================
+1. Open Apple Watch or iPhone
+2. Go to Settings > Privacy & Security
+3. Select "Health"
+4. Find Atlas/OpenClaw in apps
+5. Enable Health Access
+
+STEP 2: SHARE HEALTH CATEGORIES
+===============================
+Check these categories:
+- Active Energy
+- Active Workout Types
+- Active Minutes
+- Heart Rate
+- Sleep Analysis
+- Walking & Running Distance
+- Steps
+- Floor Climbing
+- Stand Hours
+
+STEP 3: ATLAS ACCESS METHODS
+=============================
+
+METHOD 1: DIRECT HEALTH API
+============================
+- Atlas connects to Apple Health API
+- Pulls data automatically
+- Syncs daily
+- Real-time updates
+
+METHOD 2: FITNESS+ APP INTEGRATION
+===================================
+- Use Apple Fitness+
+- Atlas monitors workouts
+- Tracks progress
+- Adjusts routines
+
+METHOD 3: WEARABLE INTEGRATION
+===============================
+- Apple Watch paired
+- Atlas reads metrics
+- Syncs to OpenClaw
+- Tracks daily goals
+
+STEP 4: CONFIGURE AUTOMATIC SYNC
+================================
+Settings:
+- Auto-sync: Enable
+- Frequency: Daily (or real-time)
+- Categories: All fitness data
+- Privacy: Secure
+
+STEP 5: ATLAS MONITORING
+=========================
+What Atlas Tracks:
+- Daily steps (10k goal)
+- Workout duration
+- Calories burned
+- Heart rate zones
+- Sleep quality
+- Recovery time
+- Body weight (163.3 lbs)
+- BMI trends
+
+STEP 6: PRIVACY SETTINGS
+=========================
+- Share only fitness data
+- Keep personal info private
+- Control what Atlas sees
+- Review access permissions
+
+STEP 7: ATLAS DASHBOARD
+========================
+View on:
+- OpenClaw Console
+- Web Dashboard
+- Mobile App
+- Real-time updates
+
+STEP 8: ALERTS & NOTIFICATIONS
+===============================
+Atlas will:
+- Alert on missed workouts
+- Remind daily walking
+- Warn about recovery
+- Celebrate milestones
+- Adjust plans
+
+=== COMMANDS FOR ATLAS ===
+
+"Get Atlas to sync my Apple Fitness"
+"Get Atlas to monitor my workouts"
+"Get Atlas to track my progress"
+"Get Atlas to alert on missed goals"
+"Get Atlas to adjust my routine"
+
+=== BENEFITS ===
+
+✅ Automatic data tracking
+✅ Real-time progress updates
+✅ Personalized feedback
+✅ Goal adjustment
+✅ Recovery monitoring
+✅ Motivation tracking
+✅ Consistent routine
+
+=== TROUBLESHOOTING ===
+
+Problem: Data not syncing
+Solution: Re-authenticate Apple Health
+
+Problem: Missing categories
+Solution: Enable more Health categories
+
+Problem: Delayed updates
+Solution: Check internet connection
+
+=== SETUP COMPLETE ===
+
+Once configured, Atlas will:
+- Read your Apple Fitness data
+- Monitor daily goals
+- Track progress
+- Adjust workouts
+- Send motivational alerts
+- Keep you on track!

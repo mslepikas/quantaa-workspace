@@ -1,0 +1,190 @@
+{
+  "version": "1.0",
+  "updated": "2026-04-29T23:08:19-04:00",
+  "groups": {
+    "business": {
+      "platform": "GB10 (current) → Mac Mini (migration pending)",
+      "agents": {
+        "q": {
+          "role": "Developer + Command Center",
+          "status": "active",
+          "currentPlatform": "GB10",
+          "plannedPlatform": "Mac Mini",
+          "lastHeartbeat": null,
+          "capabilities": [
+            "web-dev",
+            "system-automation",
+            "openclaw-config",
+            "agent-routing",
+            "api-dev",
+            "deployment"
+          ],
+          "reportsTo": "angus"
+        },
+        "danno": {
+          "role": "Security",
+          "status": "active",
+          "currentPlatform": "GB10",
+          "plannedPlatform": "Mac Mini",
+          "lastHeartbeat": null,
+          "capabilities": [
+            "access-control",
+            "threat-detection",
+            "system-hardening",
+            "vulnerability-scanning",
+            "security-audit"
+          ],
+          "authority": "final-security-veto",
+          "reportsTo": "angus"
+        },
+        "scout": {
+          "role": "Researcher",
+          "status": "active",
+          "currentPlatform": "GB10",
+          "plannedPlatform": "Mac Mini",
+          "lastHeartbeat": null,
+          "capabilities": [
+            "market-research",
+            "ai-tech",
+            "gadgets",
+            "wireless-networks",
+            "business-ideas",
+            "competitor-analysis",
+            "trend-monitoring"
+          ],
+          "reportsTo": "angus"
+        },
+        "fin": {
+          "role": "Banking/Finance",
+          "status": "active",
+          "currentPlatform": "GB10",
+          "plannedPlatform": "Mac Mini",
+          "lastHeartbeat": null,
+          "capabilities": [
+            "budget-tracking",
+            "investment-monitoring",
+            "financial-planning",
+            "portfolio-management",
+            "expense-reporting"
+          ],
+          "reportsTo": "angus"
+        }
+      }
+    },
+    "personal": {
+      "platform": "Mac Mini (on order — pending arrival)",
+      "migrationStatus": "planned — Mac Mini on order, migrate personal agents later",
+      "agents": {
+        "ash": {
+          "role": "Social + Travel",
+          "status": "active",
+          "currentPlatform": "GB10",
+          "plannedPlatform": "Mac Mini",
+          "lastHeartbeat": null,
+          "capabilities": [
+            "social-media",
+            "content-creation",
+            "trip-planning",
+            "booking",
+            "itinerary-management"
+          ],
+          "reportsTo": "angus"
+        },
+        "flo": {
+          "role": "Housekeeping + Shopping",
+          "status": "active",
+          "currentPlatform": "GB10",
+          "plannedPlatform": "Mac Mini",
+          "lastHeartbeat": null,
+          "deliveryAddress": "216 Charlemagne Circle, Ponte Vedra Beach, FL 32082",
+          "capabilities": [
+            "home-management",
+            "supply-ordering",
+            "inventory-tracking",
+            "shopping",
+            "maintenance-scheduling"
+          ],
+          "reportsTo": "angus"
+        },
+        "jerrica": {
+          "role": "Personal Assistant",
+          "status": "active",
+          "currentPlatform": "GB10",
+          "plannedPlatform": "Mac Mini",
+          "lastHeartbeat": null,
+          "capabilities": [
+            "schedule-management",
+            "reminders",
+            "lifestyle-coordination",
+            "priority-tracking"
+          ],
+          "reportsTo": "angus"
+        },
+        "atlas": {
+          "role": "Health + Fitness",
+          "status": "active",
+          "currentPlatform": "GB10",
+          "plannedPlatform": "Mac Mini",
+          "lastHeartbeat": null,
+          "capabilities": [
+            "workout-planning",
+            "nutrition-guidance",
+            "progress-tracking",
+            "fitness-coaching"
+          ],
+          "reportsTo": "angus"
+        }
+      }
+    }
+  },
+  "hierarchy": {
+    "ceo": "mark",
+    "chiefOfStaff": "angus",
+    "securityOverride": "danno"
+  },
+  "taskQueue": {
+    "pending": [],
+    "completed": []
+  },
+  "routingRules": {
+    "webDev": [
+      "q"
+    ],
+    "security": [
+      "danno"
+    ],
+    "research": [
+      "scout"
+    ],
+    "finance": [
+      "fin"
+    ],
+    "social": [
+      "ash"
+    ],
+    "travel": [
+      "ash"
+    ],
+    "housekeeping": [
+      "flo"
+    ],
+    "shopping": [
+      "flo"
+    ],
+    "schedule": [
+      "jerrica"
+    ],
+    "health": [
+      "atlas"
+    ],
+    "systemConfig": [
+      "q"
+    ],
+    "crossAgent": [
+      "q"
+    ],
+    "default": [
+      "angus"
+    ]
+  }
+}
