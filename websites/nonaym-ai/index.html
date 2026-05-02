@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nonaym.ai — Logo</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: #0f172a;
+    color: #e2e8f0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+  }
+  h1 {
+    font-size: 1.4rem;
+    color: #94a3b8;
+    margin-bottom: 30px;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    width: 100%;
+  }
+  .card {
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #1e293b;
+  }
+  .card-header {
+    padding: 14px 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .card-light .card-header { background: #1e293b; color: #94a3b8; }
+  .card-dark .card-header { background: #1e293b; color: #06b6d4; }
+  .card-gradient .card-header { background: linear-gradient(135deg, #f0f9ff, #0f172a); color: #1e293b; }
+  .card-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+  }
+  .card-light .card-body { background: #ffffff; }
+  .card-dark .card-body { background: #0f172a; }
+  .card-gradient .card-body { background: linear-gradient(180deg, #f0f9ff 0%, #0f172a 100%); }
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  .download-links {
+    margin-top: 30px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .download-links a {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #1e293b;
+    color: #94a3b8;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    border: 1px solid #334155;
+    transition: all 0.15s;
+  }
+  .download-links a:hover {
+    background: #06b6d4;
+    color: #0f172a;
+    border-color: #06b6d4;
+  }
+  .sizes {
+    margin-top: 30px;
+    max-width: 600px;
+    width: 100%;
+  }
+  .sizes h2 {
+    font-size: 1.1rem;
+    color: #94a3b8;
+    margin-bottom: 15px;
+    font-weight: 400;
+  }
+  .sizes-row {
+    display: flex;
+    gap: 20px;
+    align-items: flex-end;
+    flex-wrap: wrap;
+  }
+  .size-item {
+    text-align: center;
+  }
+  .size-item span {
+    display: block;
+    font-size: 0.75rem;
+    color: #64748b;
+    margin-top: 6px;
+  }
+</style>
+</head>
+<body>
+  <h1>Nonaym.ai — Logo Preview</h1>
+  
+  <div class="grid">
+    <div class="card card-light">
+      <div class="card-header">White Background</div>
+      <div class="card-body">
+        <img src="logo.png" alt="Nonaym.ai Logo">
+      </div>
+    </div>
+    <div class="card card-dark">
+      <div class="card-header">Dark Background</div>
+      <div class="card-body">
+        <img src="logo-dark.png" alt="Nonaym.ai Logo Dark">
+      </div>
+    </div>
+    <div class="card card-gradient">
+      <div class="card-header">Gradient Background</div>
+      <div class="card-body">
+        <img src="logo-gradient.png" alt="Nonaym.ai Logo Gradient">
+      </div>
+    </div>
+  </div>
+
+  <div class="sizes">
+    <h2>Favicon &amp; App Icon</h2>
+    <div class="sizes-row">
+      <div class="size-item">
+        <img src="favicon.png" width="64" height="64" alt="favicon">
+        <span>32px favicon</span>
+      </div>
+      <div class="size-item">
+        <img src="app-icon.png" width="128" height="128" alt="app icon">
+        <span>Square crop</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="download-links">
+    <a href="logo.png" download>⬇ logo.png</a>
+    <a href="logo-dark.png" download>⬇ logo-dark.png</a>
+    <a href="logo-gradient.png" download>⬇ logo-gradient.png</a>
+    <a href="favicon.png" download>⬇ favicon.png</a>
+    <a href="app-icon.png" download>⬇ app-icon.png</a>
+  </div>
+</body>
+</html>

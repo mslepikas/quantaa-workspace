@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  technitium-dns:
+    image: technitium/dns-server:latest
+    container_name: nonaym-dns
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      - ./config/data:/etc/dns
+      - ./config/log:/var/log/dns
+    environment:
+      - DnsServerPrimaryPort=53
+      - DnsServerDashboardPort=53443
+    # Uncomment for custom blocklist management
+    # command: ["--blocklistUrl", "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts"]
