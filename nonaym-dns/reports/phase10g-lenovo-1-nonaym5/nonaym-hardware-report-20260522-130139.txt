@@ -1,0 +1,55 @@
+Nonaym DIY Hardware Preflight Report
+====================================
+
+--- CPU Information ---
+Model name:                              Intel(R) Core(TM) i3-6100 CPU @ 3.70GHz
+CPU max MHz:                             3700.0000
+CPU min MHz:                             800.0000
+CPU Info (/proc/cpuinfo):
+model name	: Intel(R) Core(TM) i3-6100 CPU @ 3.70GHz
+cpu cores	: 2
+siblings	: 4
+
+--- Memory Information ---
+               total        used        free      shared  buff/cache   available
+Mem:           7.7Gi       1.9Gi       4.8Gi       351Mi       1.5Gi       5.7Gi
+Swap:          7.9Gi          0B       7.9Gi
+Memory Info (/proc/meminfo):
+MemTotal:        8023580 kB
+MemAvailable:    6022088 kB
+
+--- Disk Information ---
+NAME                   FSTYPE      FSVER    LABEL UUID                                   FSAVAIL FSUSE% MOUNTPOINTS
+nvme0n1                                                                                                 
+├─nvme0n1p1            ext4        1.0            6edaf7c1-94db-4c7e-8265-59f17a1c419a    725.2M    16% /boot
+├─nvme0n1p2                                                                                             
+└─nvme0n1p5            LVM2_member LVM2 001       NVLWK4-T1yA-fnAs-a0yp-00JP-YR0X-hPKQlT                
+  ├─nonaym5--vg-root   ext4        1.0            3cd0c36c-3c8d-4c89-8fa6-36dfb5abb4d8    208.2G     2% /
+  └─nonaym5--vg-swap_1 swap        1              7e1acffd-d32d-40af-9c70-896e16a00af1                  [SWAP]
+Filesystem                    Size  Used Avail Use% Mounted on
+udev                          3.8G     0  3.8G   0% /dev
+tmpfs                         784M  1.6M  782M   1% /run
+/dev/mapper/nonaym5--vg-root  225G  5.3G  209G   3% /
+tmpfs                         3.9G   12K  3.9G   1% /dev/shm
+tmpfs                         5.0M  8.0K  5.0M   1% /run/lock
+tmpfs                         1.0M     0  1.0M   0% /run/credentials/systemd-journald.service
+tmpfs                         3.9G   16K  3.9G   1% /tmp
+/dev/nvme0n1p1                943M  153M  726M  18% /boot
+tmpfs                         784M   96K  784M   1% /run/user/1000
+
+--- Hardware Information ---
+lshw not available
+dmidecode not available
+
+--- Installation Profile Recommendation ---
+CPU cores: 4
+Memory: 7GB
+Raspberry Pi detected: no
+Recommended Profile: Standard x86_64 Profile
+Reason: x86_64 architecture with sufficient resources
+
+--- Summary ---
+Hardware preflight completed successfully
+Report saved to: /home/nonaym5/nonaym-phase10g/reports/nonaym-hardware-report-20260522-130139.txt
+
+--- End of Report ---
