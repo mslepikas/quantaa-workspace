@@ -1,0 +1,103 @@
+Nonaym DIY Hardware Preflight Report
+====================================
+
+--- CPU Information ---
+Model name:                              Intel(R) Celeron(R) J6412 @ 2.00GHz
+CPU max MHz:                             2001.0000
+CPU min MHz:                             800.0000
+CPU Info (/proc/cpuinfo):
+model name	: Intel(R) Celeron(R) J6412 @ 2.00GHz
+cpu cores	: 4
+siblings	: 4
+
+--- Memory Information ---
+               total        used        free      shared  buff/cache   available
+Mem:            14Gi       1.9Gi       9.2Gi       293Mi       4.5Gi        13Gi
+Swap:          4.0Gi          0B       4.0Gi
+Memory Info (/proc/meminfo):
+MemTotal:       15717436 kB
+MemAvailable:   13770768 kB
+
+--- Disk Information ---
+NAME                      FSTYPE      FSVER    LABEL UUID                                   FSAVAIL FSUSE% MOUNTPOINTS
+loop0                     squashfs    4.0                                                         0   100% /snap/core24/1587
+loop1                     squashfs    4.0                                                         0   100% /snap/bare/5
+loop2                     squashfs    4.0                                                         0   100% /snap/firefox/8339
+loop3                     squashfs    4.0                                                         0   100% /snap/gnome-46-2404/153
+loop4                     squashfs    4.0                                                         0   100% /snap/gtk-common-themes/1535
+loop5                     squashfs    4.0                                                         0   100% /snap/mesa-2404/1165
+loop6                     squashfs    4.0                                                         0   100% /snap/core24/1643
+loop7                     squashfs    4.0                                                         0   100% /snap/snapd/26865
+loop9                     squashfs    4.0                                                         0   100% /snap/thunderbird/1093
+loop10                    squashfs    4.0                                                         0   100% /snap/thunderbird/1104
+loop11                    squashfs    4.0                                                         0   100% /snap/firefox/8306
+sda                                                                                                        
+├─sda1                    vfat        FAT32          AA27-9100                                   1G     1% /boot/efi
+├─sda2                    ext4        1.0            6ddc6505-5d54-403e-a7c1-5d0e9acc83bf      1.7G     5% /boot
+└─sda3                    LVM2_member LVM2 001       dTD5Ki-8LFa-JRlV-flyF-Kv2j-q1SP-hl3FLj                
+  └─ubuntu--vg-ubuntu--lv ext4        1.0            e0bc153f-d894-416c-8c2f-9c8b35f3375c     37.4G    24% /
+mmcblk0                                                                                                    
+mmcblk0boot0                                                                                               
+mmcblk0boot1                                                                                               
+Filesystem                         Size  Used Avail Use% Mounted on
+tmpfs                              3.0G  2.3M  3.0G   1% /run
+/dev/mapper/ubuntu--vg-ubuntu--lv   54G   14G   38G  26% /
+tmpfs                              7.5G  8.0K  7.5G   1% /dev/shm
+efivarfs                            64K   34K   26K  58% /sys/firmware/efi/efivars
+none                               1.0M     0  1.0M   0% /run/credentials/systemd-journald.service
+tmpfs                              7.5G     0  7.5G   0% /tmp
+/dev/sda2                          2.0G  104M  1.7G   6% /boot
+/dev/sda1                          1.1G  6.4M  1.1G   1% /boot/efi
+none                               1.0M     0  1.0M   0% /run/credentials/systemd-networkd.service
+tmpfs                              1.5G  100K  1.5G   1% /run/user/1000
+
+--- Hardware Information ---
+H/W path       Device            Class          Description
+===========================================================
+                                 system         Computer
+/0                               bus            Motherboard
+/0/0                             memory         16GiB System memory
+/0/1                             processor      Intel(R) Celeron(R) J6412 @ 2.00GHz
+/0/100                           bridge         Elkhart Lake PCI-e Root Complex
+/0/100/2       /dev/fb0          display        Elkhart Lake [UHD Graphics Gen11 16EU]
+/0/100/8                         generic        Elkhart Lake Gaussian and Neural Accelerator
+/0/100/14                        bus            Elkhart Lake USB 3.10 XHCI
+/0/100/14.2                      memory         RAM memory
+/0/100/17                        storage        Elkhart Lake SATA AHCI
+/0/100/1a      mmc0              bus            Intel Corporation
+/0/100/1a/1                      generic        AJTD4R
+/0/100/1a/1/1  /dev/mmcblk0rpmb  generic        
+/0/100/1a/1/2  /dev/mmcblk0      generic        
+/0/100/1c                        bridge         Elkhart Lake PCH PCI Express Root Port #0
+/0/100/1c/0    enp1s0            network        Ethernet Controller I225-V
+/0/100/1c.1                      bridge         Elkhart Lake PCH PCI Express Root Port #1
+/0/100/1c.1/0  enp2s0            network        Ethernet Controller I225-V
+/0/100/1c.2                      bridge         Intel Corporation
+/0/100/1c.2/0  enp3s0            network        Ethernet Controller I225-V
+/0/100/1c.4                      bridge         Elkhart Lake PCIe Root Port #4
+/0/100/1c.4/0  enp4s0            network        Ethernet Controller I225-V
+/0/100/1f                        bridge         Elkhart Lake eSPI Controller
+/0/100/1f/0                      system         PnP device PNP0b00
+/0/100/1f/1                      communication  PnP device PNP0501
+/0/100/1f.3    card0             multimedia     Elkhart Lake High Density Audio bus interface
+/0/100/1f.3/0  input1            input          HDA Intel PCH HDMI/DP,pcm=3
+/0/100/1f.3/1  input2            input          HDA Intel PCH HDMI/DP,pcm=7
+/0/100/1f.3/2  input3            input          HDA Intel PCH HDMI/DP,pcm=8
+/0/100/1f.3/3  input4            input          HDA Intel PCH HDMI/DP,pcm=9
+/0/100/1f.4                      bus            Elkhart Lake SMBus Controller
+/0/100/1f.5                      bus            Elkhart Lake SPI (Flash) Controller
+/1             input0            input          Power Button
+DMI info (system):
+
+--- Installation Profile Recommendation ---
+CPU cores: 4
+Memory: 14GB
+Raspberry Pi detected: no
+Recommended Profile: Standard x86_64 Profile
+Reason: x86_64 architecture with sufficient resources
+
+--- Summary ---
+Hardware preflight completed successfully
+Report saved to: /home/tech2/nonaym-phase10e/reports/nonaym-hardware-report-20260522-114053.txt
+
+--- End of Report ---

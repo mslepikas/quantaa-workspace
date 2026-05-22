@@ -27,9 +27,7 @@ check_root() {
 
 # Function to detect system architecture
 detect_architecture() {
-    ARCH=$(uname -m)
-    log "Architecture: $ARCH"
-    echo "$ARCH"
+    uname -m
 }
 
 # Function to detect if system is Raspberry Pi
