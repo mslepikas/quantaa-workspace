@@ -1,0 +1,98 @@
+Nonaym DIY Hardware Preflight Report
+====================================
+
+--- CPU Information ---
+Model name:                              Intel(R) Core(TM) i3-6100 CPU @ 3.70GHz
+CPU max MHz:                             3700.0000
+CPU min MHz:                             800.0000
+CPU Info (/proc/cpuinfo):
+model name	: Intel(R) Core(TM) i3-6100 CPU @ 3.70GHz
+cpu cores	: 2
+siblings	: 4
+
+--- Memory Information ---
+               total        used        free      shared  buff/cache   available
+Mem:           7.1Gi       2.0Gi       3.7Gi       610Mi       2.2Gi       5.1Gi
+Swap:          4.0Gi          0B       4.0Gi
+Memory Info (/proc/meminfo):
+MemTotal:        7487824 kB
+MemAvailable:    5396372 kB
+
+--- Disk Information ---
+NAME                      FSTYPE      FSVER    LABEL UUID                                   FSAVAIL FSUSE% MOUNTPOINTS
+loop0                     squashfs    4.0                                                         0   100% /snap/bare/5
+loop1                     squashfs    4.0                                                         0   100% /snap/core24/1587
+loop2                     squashfs    4.0                                                         0   100% /snap/firefox/8274
+loop3                     squashfs    4.0                                                         0   100% /snap/gnome-46-2404/153
+loop4                     squashfs    4.0                                                         0   100% /snap/mesa-2404/1165
+loop5                     squashfs    4.0                                                         0   100% /snap/gtk-common-themes/1535
+loop6                     squashfs    4.0                                                         0   100% /snap/snapd/26865
+loop7                     squashfs    4.0                                                         0   100% /snap/thunderbird/1093
+nvme0n1                                                                                                    
+├─nvme0n1p1                                                                                                
+├─nvme0n1p2               ext4        1.0            bc1b0df3-834f-4791-b2eb-b679b6e8d443      1.7G     5% /boot
+└─nvme0n1p3               LVM2_member LVM2 001       GgvYdu-fkKd-X43f-ykTA-U09N-jcAV-raHjeh                
+  └─ubuntu--vg-ubuntu--lv ext4        1.0            2f5aeaf7-ab98-43ea-a482-e13a9a5ac783       80G    13% /
+Filesystem                         Size  Used Avail Use% Mounted on
+tmpfs                              1.5G  2.2M  1.5G   1% /run
+/dev/mapper/ubuntu--vg-ubuntu--lv   98G   13G   80G  14% /
+tmpfs                              3.6G  8.0K  3.6G   1% /dev/shm
+none                               1.0M     0  1.0M   0% /run/credentials/systemd-journald.service
+none                               1.0M     0  1.0M   0% /run/credentials/systemd-resolved.service
+/dev/nvme0n1p2                     2.0G  103M  1.7G   6% /boot
+tmpfs                              3.6G  8.0K  3.6G   1% /tmp
+none                               1.0M     0  1.0M   0% /run/credentials/systemd-networkd.service
+tmpfs                              732M   92K  732M   1% /run/user/1000
+
+--- Hardware Information ---
+H/W path       Device        Class          Description
+=======================================================
+                             system         Computer
+/0                           bus            Motherboard
+/0/0                         memory         8GiB System memory
+/0/1                         processor      Intel(R) Core(TM) i3-6100 CPU @ 3.70GHz
+/0/100                       bridge         Xeon E3-1200 v5/E3-1500 v5/6th Gen Core Processor Host Bridge/DRAM Registers
+/0/100/2       /dev/fb0      display        Skylake-S GT2 [HD Graphics 530]
+/0/100/14                    bus            200 Series/Z370 Chipset Family USB 3.0 xHCI Controller
+/0/100/14.2                  generic        200 Series PCH Thermal Subsystem
+/0/100/16                    communication  200 Series PCH CSME HECI #1
+/0/100/17                    storage        200 Series PCH SATA controller [AHCI mode]
+/0/100/1b                    bridge         200 Series PCH PCI Express Root Port #21
+/0/100/1b/0    /dev/nvme0    storage        SAMSUNG MZVLB256HAHQ-000H1
+/0/100/1b/0/0  hwmon0        disk           NVMe disk
+/0/100/1b/0/2  /dev/ng0n1    disk           NVMe disk
+/0/100/1b/0/1  /dev/nvme0n1  disk           NVMe disk
+/0/100/1f                    bridge         200 Series PCH LPC Controller (B250)
+/0/100/1f/0                  system         PnP device PNP0b00
+/0/100/1f.2                  memory         Memory controller
+/0/100/1f.3    card0         multimedia     200 Series PCH HD Audio
+/0/100/1f.3/0  input10       input          HDA Intel PCH Front Headphone
+/0/100/1f.3/1  input11       input          HDA Intel PCH HDMI/DP,pcm=3
+/0/100/1f.3/2  input12       input          HDA Intel PCH HDMI/DP,pcm=7
+/0/100/1f.3/3  input13       input          HDA Intel PCH HDMI/DP,pcm=8
+/0/100/1f.3/4  input8        input          HDA Intel PCH Front Mic
+/0/100/1f.3/5  input9        input          HDA Intel PCH Mic
+/0/100/1f.4                  bus            200 Series/Z370 Chipset Family SMBus Controller
+/0/100/1f.6    enp0s31f6     network        Ethernet Connection (2) I219-V
+/1             input0        input          Sleep Button
+/2             input1        input          Power Button
+/3             input14       input          CASUE USB KB
+/4             input15       input          CASUE USB KB Consumer Control
+/5             input16       input          CASUE USB KB System Control
+/6             input18       input          Instant USB Optical Mouse
+/7             input2        input          Power Button
+/8             input7        input          Video Bus
+DMI info (system):
+
+--- Installation Profile Recommendation ---
+CPU cores: 4
+Memory: 7GB
+Raspberry Pi detected: no
+Recommended Profile: Standard x86_64 Profile
+Reason: x86_64 architecture with sufficient resources
+
+--- Summary ---
+Hardware preflight completed successfully
+Report saved to: /home/nonaym4/nonaym-phase10h/reports/nonaym-hardware-report-20260522-170713.txt
+
+--- End of Report ---
