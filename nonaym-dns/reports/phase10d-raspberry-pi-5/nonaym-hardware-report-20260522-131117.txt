@@ -1,0 +1,55 @@
+Nonaym DIY Hardware Preflight Report
+====================================
+
+--- CPU Information ---
+Model name:                              Cortex-A76
+CPU max MHz:                             2400.0000
+CPU min MHz:                             1500.0000
+CPU Info (/proc/cpuinfo):
+
+--- Memory Information ---
+               total        used        free      shared  buff/cache   available
+Mem:           7.9Gi       2.2Gi       2.8Gi       339Mi       3.3Gi       5.6Gi
+Swap:          2.0Gi          0B       2.0Gi
+Memory Info (/proc/meminfo):
+MemTotal:        8254400 kB
+MemAvailable:    5901760 kB
+
+--- Disk Information ---
+NAME        FSTYPE FSVER LABEL  UUID                                 FSAVAIL FSUSE% MOUNTPOINTS
+loop0       swap   1                                                                
+zram0       swap   1     zram0  5eec9f70-b4e0-43f1-8338-7e894493fd5a                [SWAP]
+nvme0n1                                                                             
+├─nvme0n1p1 vfat   FAT32 bootfs F587-071F                             432.3M    15% /boot/firmware
+└─nvme0n1p2 ext4   1.0   rootfs d6944274-f2f7-4644-96a4-213c3b367f5c    209G     7% /
+Filesystem      Size  Used Avail Use% Mounted on
+udev            3.9G     0  3.9G   0% /dev
+tmpfs           1.6G  147M  1.5G  10% /run
+/dev/nvme0n1p2  235G   16G  209G   7% /
+tmpfs           4.0G  560K  4.0G   1% /dev/shm
+tmpfs           5.0M   48K  5.0M   1% /run/lock
+tmpfs           1.0M     0  1.0M   0% /run/credentials/systemd-journald.service
+tmpfs           4.0G     0  4.0G   0% /tmp
+/dev/nvme0n1p1  510M   78M  433M  16% /boot/firmware
+tmpfs           807M  1.1M  805M   1% /run/user/1001
+tmpfs           807M  272K  806M   1% /run/user/1000
+tmpfs           1.0M     0  1.0M   0% /run/credentials/getty@tty1.service
+tmpfs           1.0M     0  1.0M   0% /run/credentials/serial-getty@ttyAMA10.service
+
+--- Hardware Information ---
+lshw not available
+DMI info (system):
+Architecture: aarch64
+
+--- Installation Profile Recommendation ---
+CPU cores: 4
+Memory: 7GB
+Raspberry Pi detected: yes
+Recommended Profile: Raspberry Pi / ARM64 Profile
+Reason: Raspberry Pi ARM64 detected with sufficient memory
+
+--- Summary ---
+Hardware preflight completed successfully
+Report saved to: /home/mslepikas/nonaym-phase10d/reports/nonaym-hardware-report-20260522-131117.txt
+
+--- End of Report ---
