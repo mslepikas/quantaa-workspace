@@ -1,0 +1,57 @@
+Nonaym DIY Hardware Preflight Report
+====================================
+
+--- CPU Information ---
+Model name:                              Intel(R) Core(TM) i5-3317U CPU @ 1.70GHz
+CPU max MHz:                             1600.0000
+CPU min MHz:                             800.0000
+CPU Info (/proc/cpuinfo):
+model name	: Intel(R) Core(TM) i5-3317U CPU @ 1.70GHz
+cpu cores	: 2
+siblings	: 4
+
+--- Memory Information ---
+               total        used        free      shared  buff/cache   available
+Mem:           7.7Gi       861Mi       306Mi        37Mi       6.8Gi       6.8Gi
+Swap:          6.1Gi       256Ki       6.1Gi
+Memory Info (/proc/meminfo):
+MemTotal:        8029856 kB
+MemAvailable:    7147436 kB
+
+--- Disk Information ---
+NAME   FSTYPE FSVER LABEL UUID                                 FSAVAIL FSUSE% MOUNTPOINTS
+sda                                                                           
+├─sda1 ext4   1.0         edfc8bc5-72ad-4c32-957c-21d20b6d2615   98.7G     6% /
+├─sda2                                                                        
+└─sda5 swap   1           33f6db84-dd35-4dce-a35c-5b55c631e2b4                [SWAP]
+sdb                                                                           
+sr0                                                                           
+Filesystem      Size  Used Avail Use% Mounted on
+udev            3.9G     0  3.9G   0% /dev
+tmpfs           785M  944K  784M   1% /run
+/dev/sda1       111G  6.5G   99G   7% /
+tmpfs           3.9G     0  3.9G   0% /dev/shm
+tmpfs           5.0M     0  5.0M   0% /run/lock
+tmpfs           1.0M     0  1.0M   0% /run/credentials/systemd-journald.service
+tmpfs           3.9G     0  3.9G   0% /tmp
+tmpfs           1.0M     0  1.0M   0% /run/credentials/getty@tty1.service
+tmpfs           785M  8.0K  785M   1% /run/user/1000
+
+--- Hardware Information ---
+lshw not available
+dmidecode not available
+Architecture: x86_64
+
+--- Installation Profile Recommendation ---
+CPU cores: 4
+Memory: 7GB
+Raspberry Pi detected: no
+Recommended Profile: Unsupported Architecture
+Reason: Unsupported architecture (Architecture: x86_64
+x86_64)
+
+--- Summary ---
+Hardware preflight completed successfully
+Report saved to: /home/nonaym1/nonaym-phase10f/reports/nonaym-hardware-report-20260522-124338.txt
+
+--- End of Report ---
