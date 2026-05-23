@@ -1,0 +1,93 @@
+Nonaym DIY Hardware Preflight Report
+====================================
+Script version: phase10j-v2.1
+Date: Sat May 23 11:35:18 AM -02 2026
+Hostname: UnifiPi
+
+--- CPU Information ---
+Architecture:                            aarch64
+CPU(s):                                  4
+On-line CPU(s) list:                     0-3
+Model name:                              Cortex-A76
+Thread(s) per core:                      1
+CPU(s) scaling MHz:                      75%
+NUMA node0 CPU(s):                       0-3
+NUMA node1 CPU(s):                       0-3
+NUMA node2 CPU(s):                       0-3
+NUMA node3 CPU(s):                       0-3
+NUMA node4 CPU(s):                       0-3
+NUMA node5 CPU(s):                       0-3
+CPU Info (/proc/cpuinfo):
+processor	: 0
+processor	: 1
+processor	: 2
+processor	: 3
+Model		: Raspberry Pi 5 Model B Rev 1.0
+
+--- Memory Information ---
+               total        used        free      shared  buff/cache   available
+Mem:           7.9Gi       2.3Gi       2.7Gi       348Mi       3.3Gi       5.6Gi
+Swap:          2.0Gi          0B       2.0Gi
+Memory Info (/proc/meminfo):
+MemTotal:        8254400 kB
+MemAvailable:    5883856 kB
+
+--- Disk Information ---
+NAME        MODEL     SIZE TYPE FSTYPE MOUNTPOINTS
+loop0                   2G loop swap   
+zram0                   2G disk swap   [SWAP]
+nvme0n1     SANZANG 238.5G disk        
+├─nvme0n1p1           512M part vfat   /boot/firmware
+└─nvme0n1p2           238G part ext4   /
+Filesystem      Size  Used Avail Use% Mounted on
+udev            3.9G     0  3.9G   0% /dev
+tmpfs           1.6G  148M  1.5G  10% /run
+/dev/nvme0n1p2  235G   16G  209G   7% /
+tmpfs           4.0G  560K  4.0G   1% /dev/shm
+tmpfs           5.0M   48K  5.0M   1% /run/lock
+tmpfs           1.0M     0  1.0M   0% /run/credentials/systemd-journald.service
+tmpfs           4.0G     0  4.0G   0% /tmp
+/dev/nvme0n1p1  510M   78M  433M  16% /boot/firmware
+tmpfs           807M  1.5M  805M   1% /run/user/1001
+tmpfs           807M  272K  806M   1% /run/user/1000
+tmpfs           1.0M     0  1.0M   0% /run/credentials/getty@tty1.service
+tmpfs           1.0M     0  1.0M   0% /run/credentials/serial-getty@ttyAMA10.service
+
+--- Network Information ---
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000\    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP mode DEFAULT group default qlen 1000\    link/ether 2c:cf:67:67:d0:8f brd ff:ff:ff:ff:ff:ff
+3: wlan0: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN mode DEFAULT group default qlen 1000\    link/ether 2c:cf:67:67:d0:90 brd ff:ff:ff:ff:ff:ff
+
+--- Hardware Information ---
+lshw not available
+DMI info (system):
+
+--- Installation Profile Recommendation ---
+CPU cores: 4
+Memory: 7GB
+Raspberry Pi detected: yes
+Recommended Profile: Raspberry Pi / ARM64 Profile
+Reason: Raspberry Pi ARM64 detected with recommended-class memory and storage
+
+--- Nonaym DIY Final Result ---
+Script version: phase10j-v2.1
+OS: Debian GNU/Linux 13 (trixie)
+Boot mode: BIOS/Legacy, Raspberry Pi firmware, or unknown
+Architecture: aarch64
+CPU cores: 4
+Memory: 7GB
+Detected total disk capacity: 240GB
+Root filesystem free: 209GB
+Ethernet adapters detected: 1
+Wi-Fi adapters detected: 1
+Raspberry Pi detected: yes
+Recommended Profile: Raspberry Pi / ARM64 Profile
+Reason: Raspberry Pi ARM64 detected with recommended-class memory and storage
+NONAYM DIY RESULT: PASS
+Warnings:
+- none
+
+Next step: safe to continue to installer planning for this hardware class.
+
+--- End of Report ---
+Report saved to: /home/mslepikas/nonaym-phase10l-public-arm/nonaym-diy-preflight-phase10k/reports/nonaym-hardware-report-20260523-113518.txt
