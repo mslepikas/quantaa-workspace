@@ -1,0 +1,125 @@
+Nonaym DIY Hardware Preflight Report
+====================================
+\n--- CPU Information ---
+Model name:                              Cortex-X925
+CPU max MHz:                             3900.0000
+CPU min MHz:                             1378.0000
+Model name:                              Cortex-A725
+CPU max MHz:                             2808.0000
+CPU min MHz:                             338.0000
+CPU Info (/proc/cpuinfo):
+\n--- Memory Information ---
+               total        used        free      shared  buff/cache   available
+Mem:           121Gi        42Gi        49Gi       111Mi        29Gi        78Gi
+Swap:           15Gi       1.9Gi        14Gi
+Memory Info (/proc/meminfo):
+MemTotal:       127535868 kB
+MemAvailable:   82799728 kB
+\n--- Disk Information ---
+NAME        FSTYPE   FSVER LABEL       UUID                                 FSAVAIL FSUSE% MOUNTPOINTS
+loop0       squashfs 4.0                                                          0   100% /snap/bare/5
+loop1       squashfs 4.0                                                          0   100% /snap/core22/2340
+loop2       squashfs 4.0                                                          0   100% /snap/core22/2412
+loop3       squashfs 4.0                                                          0   100% /snap/thunderbird/1115
+loop4       squashfs 4.0                                                          0   100% /snap/firefox/8188
+loop5       squashfs 4.0                                                          0   100% /snap/core24/1588
+loop6       squashfs 4.0                                                          0   100% /snap/firefox/8242
+loop7       squashfs 4.0                                                          0   100% /snap/firmware-updater/225
+loop8       squashfs 4.0                                                          0   100% /snap/firmware-updater/227
+loop9       squashfs 4.0                                                          0   100% /snap/gnome-42-2204/228
+loop10      squashfs 4.0                                                          0   100% /snap/gnome-42-2204/245
+loop11      squashfs 4.0                                                          0   100% /snap/gnome-46-2404/154
+loop12      squashfs 4.0                                                          0   100% /snap/mesa-2404/1166
+loop13      squashfs 4.0                                                          0   100% /snap/gtk-common-themes/1535
+loop14      squashfs 4.0                                                          0   100% /snap/ollama/108
+loop15      squashfs 4.0                                                          0   100% /snap/ollama/113
+loop16      squashfs 4.0                                                          0   100% /snap/snap-store/1271
+loop17      squashfs 4.0                                                          0   100% /snap/snapd/26383
+loop18      squashfs 4.0                                                          0   100% /snap/snap-store/1217
+loop19      squashfs 4.0                                                          0   100% /snap/snapd-desktop-integration/359
+loop20      squashfs 4.0                                                          0   100% /snap/snapd/26869
+loop21      squashfs 4.0                                                          0   100% /snap/snapd-desktop-integration/363
+loop22      squashfs 4.0                                                          0   100% /snap/speedtest/14
+loop23      squashfs 4.0                                                          0   100% /snap/speedtest/10
+loop25      squashfs 4.0                                                          0   100% /snap/thunderbird/1105
+loop26      squashfs 4.0                                                          0   100% /snap/core24/1644
+nvme0n1                                                                                    
+├─nvme0n1p1 vfat     FAT32 ESP         4E34-849B                               1.5G     0% /boot/efi
+├─nvme0n1p2 vfat     FAT32 OS          4FC5-C22A                                           
+└─nvme0n1p3 ext4     1.0   ubuntu-root e09f68e8-e782-4353-8828-76e1bbc9e491    1.4T    18% /
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs            13G  3.8M   13G   1% /run
+efivarfs        256K   25K  232K  10% /sys/firmware/efi/efivars
+/dev/nvme0n1p3  1.9T  345G  1.4T  20% /
+tmpfs            61G  4.0K   61G   1% /dev/shm
+tmpfs           5.0M   12K  5.0M   1% /run/lock
+/dev/nvme0n1p1  1.5G  5.5M  1.5G   1% /boot/efi
+tmpfs            13G  2.5M   13G   1% /run/user/1000
+\n--- Hardware Information ---
+H/W path    Device           Class       Description
+====================================================
+                             system      Computer
+/0                           bus         Motherboard
+/0/0                         memory      127GiB System memory
+/0/1                         processor   
+/0/2                         processor   
+/0/3                         processor   
+/0/4                         processor   
+/0/5                         processor   
+/0/6                         processor   
+/0/7                         processor   
+/0/8                         processor   
+/0/9                         processor   
+/0/a                         processor   
+/0/b                         processor   
+/0/c                         processor   
+/0/d                         processor   
+/0/e                         processor   
+/0/f                         processor   
+/0/10                        processor   
+/0/11                        processor   
+/0/12                        processor   
+/0/13                        processor   
+/0/14                        processor   
+/0/100                       bridge      NVIDIA Corporation
+/0/101                       bridge      NVIDIA Corporation
+/0/102                       bridge      NVIDIA Corporation
+/0/102/0    /dev/nvme0       storage     EG6 KIOXIA 2048GB
+/0/102/0/0  hwmon1           disk        NVMe disk
+/0/102/0/2  /dev/ng0n1       disk        NVMe disk
+/0/102/0/1  /dev/nvme0n1     disk        NVMe disk
+/0/103                       bridge      NVIDIA Corporation
+/0/103/0    enP7s7           network     Realtek Semiconductor Co., Ltd.
+/0/104                       bridge      NVIDIA Corporation
+/0/104/0    wlP9s9           network     MEDIATEK Corp.
+/0/105                       bridge      NVIDIA Corporation
+/0/105/0                     display     NVIDIA Corporation
+/0/15                        system      PnP device PNP0c02
+/0/16                        system      PnP device PNP0c02
+/1          card0            multimedia  NVIDIA
+/2          card1            multimedia  Dock
+/3          /dev/fb0         display     simpledrmdrmfb
+/4          input0           input       Power Button
+/5          input1           input       Lid Switch
+/6          input10          input       NVIDIA HDMI/DP,pcm=8
+/7          input11          input       NVIDIA HDMI/DP,pcm=9
+/8          input2           input       Sleep Button
+/9          input3           input       PixArt Dell MS116 USB Optical Mouse
+/a          input4           input       Dell Dell Wired Multimedia Keyboard
+/b          input5           input       Dell Dell Wired Multimedia Keyboard Mouse
+/c          input6           input       Dell Dell Wired Multimedia Keyboard System Control
+/d          input7           input       Dell Dell Wired Multimedia Keyboard Consumer Control
+/e          input8           input       NVIDIA HDMI/DP,pcm=3
+/f          input9           input       NVIDIA HDMI/DP,pcm=7
+/10         enxd8d09020b019  network     Ethernet interface
+DMI info (system):
+Architecture: aarch64
+\n--- Installation Profile Recommendation ---
+CPU cores: 20
+Memory: 121GB
+Recommended Profile: Raspberry Pi / ARM64 Profile
+Reason: ARM64 architecture with sufficient memory
+\n--- Summary ---
+Hardware preflight completed successfully
+Report saved to: reports/nonaym-hardware-report-20260522-095640.txt
+\n--- End of Report ---
