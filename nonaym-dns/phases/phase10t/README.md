@@ -21,6 +21,9 @@ Phase 10S Q/Danno review gate passed.
 ## Test target
 
 - Machine name: nonaym1
+- Login user: nonaym1
+- LAN IP: 192.168.1.211
+- SSH target: nonaym1@192.168.1.211
 - Machine type: generic Intel test machine
 - Role: second external Nonaym DIY read-only inventory comparison target
 
