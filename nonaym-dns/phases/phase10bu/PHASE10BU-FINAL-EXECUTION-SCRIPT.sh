@@ -40,8 +40,13 @@ echo "=== Phase 10 execution preflight: local checksum ==="
 
 echo
 echo "=== Phase 10 execution preflight: protected target rejection ==="
+if [ "$TARGET_IP" = "10.1.1.109" ]; then
+  echo "STOP: TARGET_IP is hardcoded protected Protectli/ns2 quantaa IP"
+  exit 20
+fi
+
 if [ "$TARGET_IP" = "$PROTECTED_IP" ]; then
-  echo "STOP: TARGET_IP is protected Protectli/ns2 quantaa IP"
+  echo "STOP: TARGET_IP matches protected Protectli/ns2 quantaa variable"
   exit 20
 fi
 
