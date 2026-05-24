@@ -1,14 +1,14 @@
-# Nonaym DIY Phase 10AV — Q/Danno Review of Raspberry Pi OS Candidate Family
+# Nonaym DIY Phase 10AV — Q/Danno Review of Raspberry Pi OS Lite Candidate
 
 Status: Review gate
 
 Purpose:
-Review the Phase 10AU official Raspberry Pi OS candidate-family identification before any exact image is selected, downloaded, checksummed, or written.
+Review the updated Phase 10AU official Raspberry Pi OS Lite 64-bit candidate image identification before any image is downloaded, selected as final, checksummed locally, or written.
 
 This phase is review/documentation only.
 
-This phase does not install Nonaym DIY.
 This phase does not download an image.
+This phase does not install Nonaym DIY.
 This phase does not build an image.
 This phase does not select a final image.
 This phase does not write an image.
@@ -21,23 +21,15 @@ This phase does not modify DNS, network settings, packages, disks, or services.
 Primary file:
 - nonaym-dns/phases/phase10au/README.md
 
-Supporting files:
-- nonaym-dns/phases/phase10as/README.md
-- nonaym-dns/phases/phase10at/PHASE10AT-Q-DANNO-REVIEW-RESULT.md
-- nonaym-dns/phases/phase10aq/README.md
-- nonaym-dns/phases/phase10ar/PHASE10AR-Q-DANNO-REVIEW-RESULT.md
-- nonaym-dns/phases/phase10ai/PHASE10AI-UNIFIPI-IDENTITY-RESULT.md
-
 ## Q review focus
 
 Q should review:
 
-- Whether official Raspberry Pi OS 64-bit is the correct first candidate family.
-- Whether Raspberry Pi OS Lite 64-bit should be preferred for appliance testing.
-- Whether desktop image should remain fallback only.
-- Whether the future artifact fields are complete.
-- Whether exact image selection should wait until a later phase.
-- Whether any technical detail is missing before identifying the exact image file.
+- Whether Raspberry Pi OS Lite 64-bit is still the correct first candidate.
+- Whether the observed release/date/Debian/kernel/checksum fields are sufficient for planning.
+- Whether Lite remains preferred over Desktop for appliance testing.
+- Whether exact image download/verification should wait until later.
+- Whether any technical detail is missing before candidate image download planning.
 
 Q must not recommend downloading or writing an image yet.
 
@@ -46,12 +38,11 @@ Q must not recommend downloading or writing an image yet.
 Danno should review:
 
 - Whether this phase remains planning-only.
-- Whether no image download/build/write is approved.
-- Whether official Raspberry Pi OS lowers supply-chain and recovery risk.
-- Whether Protectli / ns2 quantaa / 10.1.1.109 remains protected.
+- Whether no download/build/write is approved.
 - Whether checksum/provenance gates remain required.
-- Whether another Q/Danno gate is required before exact image selection or download.
-- Whether no install-capable behavior is approved too early.
+- Whether Protectli / ns2 quantaa remains protected.
+- Whether no production secrets or private assumptions are introduced.
+- Whether another Q/Danno gate is required before download or write.
 
 Danno must return one verdict:
 - APPROVE
