@@ -1,0 +1,7 @@
+# Nonaym DIY local image artifacts
+# Keep large downloaded images out of Git.
+*.img
+*.img.xz
+*.iso
+*.raw
+*.zip
