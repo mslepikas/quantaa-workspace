@@ -14,9 +14,9 @@ This phase does not modify DNS, network settings, disks, packages, or services.
 
 - Machine name/hostname: UnifiPi.localdomain
 - Short name: unifipi
-- Login user: unifipi
+- Login user: mslepikas
 - LAN IP: 10.1.1.102
-- SSH target: unifipi@10.1.1.102
+- SSH target: mslepikas@10.1.1.102
 - Hardware class: Raspberry Pi / ARM comparison
 - Role: external read-only inventory target only
 
