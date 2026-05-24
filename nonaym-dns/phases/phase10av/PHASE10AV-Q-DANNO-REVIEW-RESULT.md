@@ -6,19 +6,19 @@ Date: 2026-05-24
 
 ## Review target
 
-Phase 10AV reviewed the Phase 10AU official Raspberry Pi OS candidate-family identification.
+Phase 10AV reviewed the updated Phase 10AU Raspberry Pi OS Lite 64-bit candidate identification.
 
 ## Q technical review result
 
 Result: PASS
 
 Key findings:
-- Official Raspberry Pi OS 64-bit is the correct first candidate family.
-- Raspberry Pi OS Lite 64-bit should be preferred for appliance testing.
-- Desktop image should remain fallback/troubleshooting only.
-- Future artifact fields are complete.
-- Exact image selection should wait until a later phase.
-- No technical detail is missing before identifying the exact image file.
+- Raspberry Pi OS Lite 64-bit is the correct first candidate image family.
+- Official Raspberry Pi OS aligns with the supported ARM hardware path.
+- Lite is preferred over Desktop for appliance testing.
+- Observed release/date/Debian/kernel/checksum fields are sufficient for planning.
+- Exact image download and verification should wait until a later phase.
+- No technical details are missing for this identification phase.
 - No image download, image writing, or install behavior is recommended.
 
 ## Danno safety review result
@@ -26,19 +26,28 @@ Key findings:
 Verdict: APPROVE
 
 Key findings:
-- Planning scope is strictly enforced.
-- No image download, build, selection, write, partitioning, formatting, or machine modification is approved.
-- Official Raspberry Pi OS 64-bit reduces supply-chain and compatibility risk.
-- Raspberry Pi OS Lite is appropriate for DNS/appliance use.
-- Protectli / ns2 quantaa / 10.1.1.109 remains hard-protected.
-- Checksum and source provenance gates remain required.
-- Future execution remains gated by Q review, Danno review, and human approval phrase.
-- No install-capable behavior is approved too early.
+- Phase 10AU remains planning-only.
+- No image is fetched.
+- No code runs.
+- No machine is touched.
+- Protectli / ns2 quantaa remains protected.
+- No secrets, keys, passwords, or tokens are introduced.
+- SHA256 is treated as observed, not locally verified.
+- Provenance and checksum verification remain required in the next gated phase.
+- No install-capable behavior is approved.
+
+## Danno next-gate caution
+
+Before any download starts in a future phase:
+- Verify metadata against the official Raspberry Pi download page.
+- Confirm the download URL uses HTTPS.
+- Confirm the source is the canonical Raspberry Pi domain.
+- Verify SHA256 against the official published checksum source, not only a page-rendered value.
 
 ## Human gate
 
 Approved next step:
-Proceed to Phase 10AW planning for exact Raspberry Pi OS Lite 64-bit image identification.
+Proceed to Phase 10AW planning for exact Raspberry Pi OS Lite image download/provenance verification plan.
 
 Still forbidden:
 - No image download.
