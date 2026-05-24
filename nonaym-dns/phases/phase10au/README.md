@@ -17,18 +17,21 @@ This phase does not modify DNS, network settings, packages, disks, or services.
 
 Source family:
 - Official Raspberry Pi OS downloads
-- Official supported OS: Raspberry Pi OS
-- Candidate family: Raspberry Pi OS 64-bit
-- Debian base observed: Debian 13 / trixie
-- Kernel family observed: 6.12
-- Candidate purpose: base OS boot validation before any Nonaym service setup
+- Candidate family: Raspberry Pi OS Lite 64-bit
+- Release date observed: 21 Apr 2026
+- Debian version observed: 13 / trixie
+- Kernel version observed: 6.12
+- Download size observed: 551 MB
+- Storage required observed: 3,080 MB
+- SHA256 observed: 4cd31df026fd82243805a326dc0cafd7383f7e3d30c9413e7044d507aae281e2
 
 ## Why this candidate family
 
-Official Raspberry Pi OS 64-bit is the preferred first image family because:
+Official Raspberry Pi OS Lite 64-bit is the preferred first image family because:
 
 - It is the official Raspberry Pi-supported OS.
 - It supports Raspberry Pi / ARM hardware directly.
+- It has no desktop environment, matching appliance-style testing.
 - It gives the lowest-risk first boot validation path.
 - It separates base OS validation from Nonaym service setup.
 - It provides a clearer recovery/reflash path than a custom image.
@@ -87,39 +90,12 @@ A later phase must identify and document:
 - Expected network behavior.
 - Recovery/reflash method.
 
-## Important decision still open
-
-Need to decide later whether the first candidate should be:
-
-- Raspberry Pi OS Lite 64-bit, preferred for appliance testing.
-- Raspberry Pi OS 64-bit with desktop, useful only if local GUI troubleshooting is needed.
-
-Current planning preference:
-- Raspberry Pi OS Lite 64-bit should be preferred for Nonaym appliance-style testing.
-- Desktop image should remain fallback for troubleshooting, not first appliance baseline.
-
-## Future Phase 10AV candidate
-
-Phase 10AV should prepare a Q/Danno review packet for this official Raspberry Pi OS candidate-family identification.
-
-If approved, a later phase may identify the exact image file and checksum.
-
-No image should be downloaded or written until:
-- Candidate image is identified.
-- Checksum is verified.
-- Live target identity is reconfirmed.
-- Live target storage is reconfirmed.
-- Q approves.
-- Danno approves.
-- Human enters exact approval phrase.
-
 ## Phase 10AU success criteria
 
 Phase 10AU passes when:
 
-- Official Raspberry Pi OS 64-bit candidate family is documented.
-- Reason for using the official base image is documented.
-- Lite-vs-desktop decision is framed but not finalized.
+- Official Raspberry Pi OS Lite 64-bit candidate family is documented.
+- Reason for using the official Lite base image is documented.
 - Required future artifact fields are documented.
 - No image is downloaded.
 - No image is written.
