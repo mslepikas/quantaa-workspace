@@ -1,0 +1,45 @@
+# Nonaym DIY Phase 10BO — Write Command Candidate
+# STATUS: DOCUMENTATION ONLY — DO NOT RUN IN PHASE 10BO
+#
+# Purpose:
+# Future command candidate for writing the verified Raspberry Pi OS Lite image
+# from omnieon to the verified UnifiPi NVMe target over SSH.
+#
+# This file is NOT a shell script.
+# Do NOT chmod it executable.
+# Do NOT paste this command into a terminal until a later phase approves execution.
+#
+# Required future gates before running:
+# - Fresh local checksum verification
+# - Fresh live UnifiPi identity verification
+# - Fresh live UnifiPi storage verification
+# - Q approval of executable command
+# - Danno approval of executable command
+# - Exact human approval phrase:
+#   I APPROVE PHASE 10 WRITE TO UNIFIPI ONLY
+#
+# Expected local image:
+# nonaym-dns/artifacts/raspios-lite-64bit-20260421/nonaym-diy-rpi-base-raspios-lite-64bit-20260421.img.xz
+#
+# Expected target:
+# mslepikas@10.1.1.102:/dev/nvme0n1
+#
+# Protected production target:
+# Protectli / ns2 quantaa / 10.1.1.109 must not be referenced or touched.
+
+WRITE_COMMAND_CANDIDATE_DO_NOT_RUN='
+cd /home/mslepikas/.openclaw/workspace || exit 1
+
+IMG="nonaym-dns/artifacts/raspios-lite-64bit-20260421/nonaym-diy-rpi-base-raspios-lite-64bit-20260421.img.xz"
+SHA="nonaym-dns/artifacts/raspios-lite-64bit-20260421/nonaym-diy-rpi-base-raspios-lite-64bit-20260421.img.xz.sha256"
+TARGET_USER="mslepikas"
+TARGET_IP="10.1.1.102"
+TARGET_DEVICE="/dev/nvme0n1"
+
+(
+  cd "$(dirname "$IMG")" || exit 1
+  sha256sum -c "$(basename "$SHA")"
+)
+
+xzcat "$IMG" | ssh "${TARGET_USER}@${TARGET_IP}" "sudo dd of=${TARGET_DEVICE} bs=4M status=progress conv=fsync"
+'
