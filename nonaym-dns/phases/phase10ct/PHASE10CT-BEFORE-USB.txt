@@ -1,0 +1,50 @@
+# Nonaym DIY Phase 10CT — Before USB Inventory
+
+Date: 2026-05-24T15:27:04-04:00
+
+## Host
+omnieon
+Linux omnieon 6.17.0-1018-nvidia #18-Ubuntu SMP PREEMPT_DYNAMIC Tue May  5 21:28:33 UTC 2026 aarch64 aarch64 aarch64 GNU/Linux
+
+## Root filesystem
+TARGET SOURCE         FSTYPE OPTIONS
+/      /dev/nvme0n1p3 ext4   rw,relatime,errors=remount-ro
+
+## Boot/EFI
+TARGET    SOURCE         FSTYPE OPTIONS
+/boot/efi /dev/nvme0n1p1 vfat   rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro
+
+## Block devices
+NAME        PATH           TYPE   SIZE MODEL             SERIAL       TRAN   ROTA RM HOTPLUG MOUNTPOINTS
+loop0       /dev/loop0     loop  68.9M                                          0  0       0 /snap/core22/2340
+loop1       /dev/loop1     loop     4K                                          0  0       0 /snap/bare/5
+loop2       /dev/loop2     loop    69M                                          0  0       0 /snap/core22/2412
+loop3       /dev/loop3     loop  61.9M                                          0  0       0 /snap/core24/1588
+loop4       /dev/loop4     loop  61.9M                                          0  0       0 /snap/core24/1644
+loop6       /dev/loop6     loop 241.1M                                          0  0       0 /snap/firefox/8242
+loop7       /dev/loop7     loop  15.5M                                          0  0       0 /snap/firmware-updater/225
+loop8       /dev/loop8     loop  15.6M                                          0  0       0 /snap/firmware-updater/227
+loop9       /dev/loop9     loop 493.6M                                          0  0       0 /snap/gnome-42-2204/228
+loop10      /dev/loop10    loop   503M                                          0  0       0 /snap/gnome-42-2204/245
+loop11      /dev/loop11    loop 552.9M                                          0  0       0 /snap/gnome-46-2404/154
+loop12      /dev/loop12    loop 174.6M                                          0  0       0 /snap/mesa-2404/1166
+loop13      /dev/loop13    loop  91.7M                                          0  0       0 /snap/gtk-common-themes/1535
+loop14      /dev/loop14    loop  12.2M                                          0  0       0 /snap/snap-store/1217
+loop15      /dev/loop15    loop   1.8G                                          0  0       0 /snap/ollama/108
+loop16      /dev/loop16    loop   1.8G                                          0  0       0 /snap/ollama/113
+loop17      /dev/loop17    loop  41.8M                                          0  0       0 /snap/snapd/26383
+loop18      /dev/loop18    loop    10M                                          0  0       0 /snap/snap-store/1271
+loop19      /dev/loop19    loop  42.6M                                          0  0       0 /snap/snapd/26869
+loop20      /dev/loop20    loop   560K                                          0  0       0 /snap/snapd-desktop-integration/359
+loop21      /dev/loop21    loop   560K                                          0  0       0 /snap/snapd-desktop-integration/363
+loop22      /dev/loop22    loop   852K                                          0  0       0 /snap/speedtest/10
+loop23      /dev/loop23    loop   852K                                          0  0       0 /snap/speedtest/14
+loop24      /dev/loop24    loop 221.2M                                          0  0       0 /snap/thunderbird/1105
+loop25      /dev/loop25    loop 221.1M                                          0  0       0 /snap/thunderbird/1115
+loop26      /dev/loop26    loop 235.9M                                          0  0       0 /snap/firefox/8363
+nvme0n1     /dev/nvme0n1   disk   1.9T EG6 KIOXIA 2048GB 9FGCT1T6Z464 nvme      0  0       0 
+├─nvme0n1p1 /dev/nvme0n1p1 part   1.5G                                nvme      0  0       0 /boot/efi
+├─nvme0n1p2 /dev/nvme0n1p2 part    12G                                nvme      0  0       0 
+└─nvme0n1p3 /dev/nvme0n1p3 part   1.8T                                nvme      0  0       0 /
+
+## /dev/disk/by-id USB entries
