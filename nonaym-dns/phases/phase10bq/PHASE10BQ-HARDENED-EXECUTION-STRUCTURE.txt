@@ -1,0 +1,30 @@
+# Nonaym DIY Phase 10BQ — Hardened Execution Structure
+# STATUS: DOCUMENTATION ONLY — DO NOT RUN IN PHASE 10BQ
+#
+# This is not a runnable script.
+# This is a structure for the future final execution packet.
+#
+# Required future gates:
+# - Q approval
+# - Danno approval
+# - Human approval phrase immediately before execution:
+#   I APPROVE PHASE 10 WRITE TO UNIFIPI ONLY
+
+PRE_EXECUTION_STRUCTURE_DO_NOT_RUN='
+1. cd /home/mslepikas/.openclaw/workspace
+2. define IMG, SHA, TARGET_USER, TARGET_IP, TARGET_DEVICE
+3. verify local SHA256 using sha256sum -c
+4. run read-only remote hostname check
+5. run read-only remote architecture check
+6. run read-only remote block-device/model check
+7. require hostname == UnifiPi
+8. require architecture == aarch64
+9. require target device == /dev/nvme0n1
+10. require device model == SANZANG
+11. require TARGET_IP == 10.1.1.102
+12. reject any reference to 10.1.1.109
+13. reject any target involving GB10 / omnieon storage
+14. require exact human approval phrase
+15. execute write only in future approved phase
+16. stop after write, no reboot unless separately approved
+'
