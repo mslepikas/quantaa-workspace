@@ -5,11 +5,17 @@ Status: Planning only
 Purpose:
 Plan how to evaluate the Protectli 2420 as an appliance-style Nonaym DIY comparison target without touching or writing to the production machine.
 
-The Protectli 2420 is currently in production.
+## Production target
+
+- Hardware: Protectli 2420
+- Host/role: ns2 quantaa
+- LAN IP: 10.1.1.109
+- Status: Production
+- Phase 10Z rule: no-write / no-touch unless separately approved
 
 ## Hard rule
 
-Do not write to the Protectli 2420.
+Do not write to the Protectli 2420 / ns2 quantaa.
 
 That means:
 
@@ -23,6 +29,7 @@ That means:
 - Do not modify firewall rules.
 - Do not run install-capable behavior.
 - Do not run inventory scripts unless separately approved.
+- Do not reboot.
 
 ## Allowed Phase 10Z behavior
 
@@ -90,11 +97,26 @@ The comparison should focus on:
 - No reboot.
 - No install/image behavior.
 
+## Privacy / redaction requirement
+
+The Protectli IP and host role are internal network details.
+
+Before any public/customer-facing use, redact:
+
+- LAN IP
+- hostnames
+- DNS role details
+- MAC addresses
+- serial numbers
+- firewall/router/DNS configuration details
+- customer-specific identifiers
+
 ## Phase 10Z success criteria
 
 Phase 10Z passes when:
 
 - Protectli is documented as production/no-write.
+- ns2 quantaa / 10.1.1.109 is documented as internal-only.
 - A no-touch inventory planning path exists.
 - A future maintenance-window path is documented but not executed.
 - No production machine changes occur.
