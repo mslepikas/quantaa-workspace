@@ -1,0 +1,27 @@
+# Nonaym DIY Phase 10CV — USB Write Method Preview
+# STATUS: DOCUMENTATION ONLY — DO NOT RUN IN PHASE 10CV
+#
+# Candidate USB from Phase 10CT/10CU:
+# - /dev/sda
+# - /dev/sda1 mounted at /media/mslepikas/DEBIAN 13_4
+# - model UDisk
+# - transport usb
+# - removable flag 1
+#
+# Blocked system disk:
+# - /dev/nvme0n1
+# - root /dev/nvme0n1p3
+# - EFI /dev/nvme0n1p1
+#
+# Future structure only:
+# 1. verify ISO checksum
+# 2. verify /dev/sda identity
+# 3. block /dev/nvme0n1
+# 4. unmount /dev/sda1
+# 5. require exact approval phrase
+# 6. write ISO to /dev/sda
+# 7. sync
+# 8. stop, no reboot
+#
+# Approval phrase candidate:
+# I APPROVE WRITING THE NONAYM DIY USB INSTALLER TO /DEV/SDA
