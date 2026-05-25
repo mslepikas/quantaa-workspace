@@ -1,0 +1,69 @@
+# Nonaym DIY Phase 10DN — First Boot Verification Result
+
+Date: 2026-05-25T11:27:21-04:00
+
+## Known result from local console
+Local login as nonaym5: PASS
+Observed DHCP IP from ip addr: 192.168.1.222
+
+## Ping old expected IP
+PING 192.168.1.217 (192.168.1.217) 56(84) bytes of data.
+
+--- 192.168.1.217 ping statistics ---
+3 packets transmitted, 0 received, 100% packet loss, time 2066ms
+
+
+## Ping new DHCP IP
+PING 192.168.1.222 (192.168.1.222) 56(84) bytes of data.
+64 bytes from 192.168.1.222: icmp_seq=1 ttl=62 time=1.96 ms
+64 bytes from 192.168.1.222: icmp_seq=2 ttl=62 time=2.05 ms
+64 bytes from 192.168.1.222: icmp_seq=3 ttl=63 time=1.59 ms
+
+--- 192.168.1.222 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2004ms
+rtt min/avg/max/mdev = 1.585/1.865/2.053/0.201 ms
+
+## Host lookup
+
+## SSH read-only verification on new IP
+HOST=nonaym5
+USER=nonaym5
+ARCH=x86_64
+KERNEL=Linux nonaym5 6.12.90+deb13-amd64 #1 SMP PREEMPT_DYNAMIC Debian 6.12.90-1 (2026-05-22) x86_64 GNU/Linux
+
+DEBIAN_VERSION:
+13.5
+
+OS_RELEASE:
+PRETTY_NAME="Debian GNU/Linux 13 (trixie)"
+NAME="Debian GNU/Linux"
+VERSION_ID="13"
+VERSION="13 (trixie)"
+VERSION_CODENAME=trixie
+DEBIAN_VERSION_FULL=13.5
+ID=debian
+HOME_URL="https://www.debian.org/"
+SUPPORT_URL="https://www.debian.org/support"
+BUG_REPORT_URL="https://bugs.debian.org/"
+
+IP_ADDRESSES:
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+enp0s31f6        UP             192.168.1.222/24 2600:1700:ac10:5c80::15/128 2600:1700:ac10:5c80:d2d4:6d66:694f:79ef/64 fe80::bd25:bcc0:b100:f012/64 
+
+ROUTES:
+default via 192.168.1.254 dev enp0s31f6 proto dhcp src 192.168.1.222 metric 1002 
+192.168.1.0/24 dev enp0s31f6 proto dhcp scope link src 192.168.1.222 metric 1002 
+
+STORAGE:
+NAME        PATH           TYPE   SIZE FSTYPE MODEL                      TRAN   ROTA RM MOUNTPOINTS
+nvme0n1     /dev/nvme0n1   disk 238.5G        SAMSUNG MZVLB256HAHQ-000L7 nvme      0  0 
+├─nvme0n1p1 /dev/nvme0n1p1 part 230.6G ext4                              nvme      0  0 /
+├─nvme0n1p2 /dev/nvme0n1p2 part     1K                                   nvme      0  0 
+└─nvme0n1p5 /dev/nvme0n1p5 part   7.9G swap                              nvme      0  0 [SWAP]
+
+ROOT:
+TARGET SOURCE         FSTYPE OPTIONS
+/      /dev/nvme0n1p1 ext4   rw,relatime,errors=remount-ro
+
+SSH_STATUS:
+active
