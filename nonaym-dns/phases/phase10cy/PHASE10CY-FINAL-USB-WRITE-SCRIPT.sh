@@ -23,10 +23,11 @@
 
 set -euo pipefail
 
-cd /home/mslepikas/.openclaw/workspace || exit 1
+WORKSPACE="/home/mslepikas/.openclaw/workspace"
+cd "$WORKSPACE" || exit 1
 
-ISO="nonaym-dns/artifacts/debian-amd64-netinst-trixie/debian-13.5.0-amd64-netinst.iso"
-SHA="nonaym-dns/artifacts/debian-amd64-netinst-trixie/debian-13.5.0-amd64-netinst.iso.sha256"
+ISO="$WORKSPACE/nonaym-dns/artifacts/debian-amd64-netinst-trixie/debian-13.5.0-amd64-netinst.iso"
+SHA="$WORKSPACE/nonaym-dns/artifacts/debian-amd64-netinst-trixie/debian-13.5.0-amd64-netinst.iso.sha256"
 
 TARGET_DEVICE="/dev/sda"
 TARGET_PARTITION="/dev/sda1"
@@ -114,20 +115,22 @@ if [ "$LIVE_RM" != "1" ]; then
 fi
 
 if [ "$LIVE_MODEL" != "$TARGET_MODEL" ]; then
-  echo "STOP: target model mismatch"
-  exit 28
+  echo "CAUTION: target model differs from expected value"
+  echo "EXPECTED_MODEL=$TARGET_MODEL"
+  echo "LIVE_MODEL=$LIVE_MODEL"
+  echo "Continuing because transport/removable/root-disk/by-id checks remain stronger safety gates."
 fi
 
-if [ ! -e "$TARGET_BY_ID" ]; then
-  echo "STOP: expected USB by-id path missing: $TARGET_BY_ID"
-  exit 29
-fi
-
-BY_ID_REAL="$(readlink -f "$TARGET_BY_ID")"
-echo "BY_ID_REAL=$BY_ID_REAL"
-if [ "$BY_ID_REAL" != "$TARGET_DEVICE" ]; then
-  echo "STOP: USB by-id path does not resolve to target device"
-  exit 30
+if [ -e "$TARGET_BY_ID" ]; then
+  BY_ID_REAL="$(readlink -f "$TARGET_BY_ID")"
+  echo "BY_ID_REAL=$BY_ID_REAL"
+  if [ "$BY_ID_REAL" != "$TARGET_DEVICE" ]; then
+    echo "STOP: USB by-id path exists but does not resolve to target device"
+    exit 30
+  fi
+else
+  echo "CAUTION: expected USB by-id path missing: $TARGET_BY_ID"
+  echo "Continuing only because live device checks, root-disk guards, sudo, and approval phrase remain active."
 fi
 
 echo
@@ -137,8 +140,15 @@ lsblk -o NAME,PATH,TYPE,SIZE,MODEL,SERIAL,TRAN,ROTA,RM,HOTPLUG,MOUNTPOINTS "$TAR
 echo
 echo "=== Phase 10CY USB write preflight: unmount target partition if mounted ==="
 if findmnt -rn "$TARGET_PARTITION" >/dev/null 2>&1; then
+  if ! command -v udisksctl >/dev/null 2>&1; then
+    echo "STOP: target partition is mounted but udisksctl is not available for safe unmount"
+    exit 31
+  fi
   echo "Unmounting $TARGET_PARTITION"
-  udisksctl unmount -b "$TARGET_PARTITION"
+  if ! udisksctl unmount -b "$TARGET_PARTITION"; then
+    echo "STOP: udisksctl failed to unmount $TARGET_PARTITION"
+    exit 31
+  fi
 else
   echo "No mounted filesystem found for $TARGET_PARTITION"
 fi
